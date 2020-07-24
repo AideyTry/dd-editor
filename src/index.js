@@ -1,6 +1,13 @@
+/*
+ * @Author: DaiLinBo
+ * @Date: 2020-07-16 15:53:29
+ * @LastEditTime: 2020-07-16 17:58:17
+ * @LastEditors: DaiLinBo
+ * @Description: 
+ */ 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
