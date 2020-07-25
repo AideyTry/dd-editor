@@ -1,14 +1,14 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-07-25 22:50:18
+ * @LastEditTime: 2020-07-25 23:22:15
  * @LastEditors: DaiLinBo
  * @Description: 
  */ 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import  "react-app-polyfill/ie11";
-import  "react-app-polufill/stable";
+// import  "react-app-polufill/stable";
 // import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
