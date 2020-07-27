@@ -1,4 +1,5 @@
 .process-tree-roots{
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   margin-bottom: 10px !important;
@@ -38,12 +39,14 @@
   margin-left: 60px;
 }
 .process-tree-childNodes> &{
+    display: -webkit-flex;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .process-tree-childNodes-row{
   position: relative;
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -61,15 +64,17 @@
   background-color:#00f;
   content: '';
 }
-.process-tree-childNodes-height:after{
+.process-tree-childNodes-height::after{
   position: absolute;
   box-sizing: border-box;
   left: -30px;
   top: 0;
   display: block;
-  width: 1px;
+  width: 30px;
   height: calc(100% + 10px);
-  background-color:#00f;
+  // background-color:#00f;
+  border: none;
+  border-left: 1px solid #00f;
   content: '';
 }
 .process-tree-childNodes-height:first-child:after{
@@ -78,9 +83,11 @@
   left: -30px;
   top: 50%;
   display: block;
-  width: 1px;
+  width: 30px;
   height: calc(100%  - 50% + 10px);
-  background-color:#00f;
+  // background-color:#00f;
+  border: none;
+  border-left: 1px solid #00f;
   content: '';
 }
 .process-tree-childNodes-height:last-child:after{
@@ -88,9 +95,11 @@
   box-sizing: border-box;
   left: -30px;
   display: block;
-  width: 1px;
+  width: 30px;
   height: calc(100%  - 50%);
-  background-color:#00f;
+  // background-color:#00f;
+  border: none;
+  border-left: 1px solid #00f;
   content: '';
 }
 .single-node:before{
