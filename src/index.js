@@ -1,13 +1,8 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
-<<<<<<< HEAD
- * @LastEditTime: 2020-07-25 23:17:07
+ * @LastEditTime: 2020-07-27 18:18:52
  * @LastEditors: Aiden
-=======
- * @LastEditTime: 2020-07-25 23:22:15
- * @LastEditors: DaiLinBo
->>>>>>> fd4a0a8a7d2874e560c6f5ce48afe7ae322bbd0f
  * @Description: 
  */ 
 import React from 'react';
