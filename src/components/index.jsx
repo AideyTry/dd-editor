@@ -1,7 +1,10 @@
 import React, { Fragment, useRef } from "react";
+import { Select } from "antd";
+// import 'antd/dist/antd.css'
 import classNames from "classnames";
 
 import styles from "./index.less";
+const { Option } = Select;
 const Node = props => {
   const { dataTree, isChild } = props;
   const currentRef = useRef(null);
@@ -15,7 +18,7 @@ const Node = props => {
             isChild
               ? styles["process-tree-childNodes-row"]
               : styles["process-tree-roots"],
-              dataTree.length > 1 ? styles["process-tree-childNodes-height"] : '',
+            dataTree.length > 1 ? styles["process-tree-childNodes-height"] : ""
           )}
         >
           <span
@@ -24,7 +27,11 @@ const Node = props => {
               styles[`${isLeaf(item)}`]
             )}
           >
-            {item.name}
+            {/* {item.name} */}
+            <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
+              <Option value="lucy">Lucy</Option>
+              <Option value="jack">jack</Option>
+            </Select>
           </span>
           {item.children && (
             <div
@@ -33,7 +40,7 @@ const Node = props => {
                 styles["process-tree-childNodes"],
                 item.children.length > 1
                   ? styles["multiply-node"]
-                  : styles["single-node"],
+                  : styles["single-node"]
               )}
             >
               <Node dataTree={item.children} isChild />

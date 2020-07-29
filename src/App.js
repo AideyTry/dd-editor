@@ -1,50 +1,21 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-07-24 15:38:44
+ * @LastEditTime: 2020-07-29 15:05:50
  * @LastEditors: DaiLinBo
  * @Description:
  */
 
 import React from "react";
-// import logo from './logo.svg';
-// import './App.css';
+import 'antd/dist/antd.css'
 import Node from "./components";
-
+import data from "./data.json";
 function App() {
-  const dataTree = [
-    {
-      id: -1,
-      name: "node",
-      children: [
-        { id: 1, name: "node1", children: [
-          {id: 111, name: "node111"},
-          {id: 112, name: "node112"}
-        ] },
-        { id: 2, name: "node2", children: [
-          {id: 21, name: "node21"},
-          {id: 22, name: "node22"}
-        ]},
-        { id: 3, name: "node3", children: [{ id: 31, name: "node3-1" }] },
-        {
-          id: 4,
-          name: "node4",
-          children: [
-            {
-              id: 41,
-              name: "node4-1",
-              children: [{ id: 411, name: "node4-11" }]
-            },
-            { id: 42, name: "node4-2" },
-            { id: 43, name: "node4-3", children: [
-              { id: 431, name: "node4-3-1" },
-              { id: 432, name: "node4-3-2" }
-            ] }
-          ]
-        }
-      ]
-    }
-  ];
+  const dataTree = data;
+  console.log("dataTree=", dataTree);
+  for (let i = 100; i < 600; i++) {
+    dataTree[0].children[3].children.push({ id: i, name: `node${i}` });
+  }
   return (
     <div>
       <Node dataTree={dataTree}></Node>
