@@ -1,7 +1,7 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-07-29 15:05:50
+ * @LastEditTime: 2020-07-31 18:39:25
  * @LastEditors: DaiLinBo
  * @Description:
  */
@@ -13,7 +13,7 @@ import data from "./data.json";
 function App() {
   const dataTree = data;
   console.log("dataTree=", dataTree);
-  for (let i = 100; i < 600; i++) {
+  for (let i = 100; i < 200; i++) {
     dataTree[0].children[3].children.push({ id: i, name: `node${i}` });
   }
   return (
