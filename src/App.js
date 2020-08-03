@@ -1,7 +1,7 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-07-31 18:39:25
+ * @LastEditTime: 2020-08-03 23:33:58
  * @LastEditors: DaiLinBo
  * @Description:
  */
@@ -9,6 +9,7 @@
 import React from "react";
 import 'antd/dist/antd.css'
 import Node from "./components";
+import Header from './components/Header'
 import data from "./data.json";
 function App() {
   const dataTree = data;
@@ -18,6 +19,7 @@ function App() {
   }
   return (
     <div>
+      <Header></Header>
       <Node dataTree={dataTree}></Node>
     </div>
   );
