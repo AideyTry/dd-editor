@@ -28,7 +28,7 @@ const Node = props => {
             )}
           >
             {/* {item.name} */}
-            <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
+            <Select defaultValue="lucy" style={{ width: '120px' }} allowClear>
               <Option value="lucy">Lucy</Option>
               <Option value="jack">jack</Option>
             </Select>
