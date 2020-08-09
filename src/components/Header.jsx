@@ -55,6 +55,16 @@ const Header = forwardRef((props, canvasRef) => {
     <Fragment>
       <header className={styles["header-wraper"]}>
         <IconFont
+          type="icon-undo"
+          className={styles["toolbar-icon"]}
+          onClick={onZoomOut}
+        />
+        <IconFont
+          type="icon-redo"
+          className={styles["toolbar-icon"]}
+          onClick={onZoomIn}
+        />
+        <IconFont
           type="icon-zoomin"
           className={styles["toolbar-icon"]}
           onClick={onZoomIn}
