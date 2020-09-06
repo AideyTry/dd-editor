@@ -1,26 +1,32 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-07-27 18:18:52
+ * @LastEditTime: 2020-09-06 22:48:06
  * @LastEditors: Aiden
- * @Description: 
- */ 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import  "react-app-polyfill/ie11";
-// import  "react-app-polufill/stable";
-// import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+ * @Description:
+ */
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import "@babel/polyfill";
+import React, { useRef } from "react";
+import "antd/dist/antd.css";
+import Node from "@/components";
+import Header from "@/components/Header";
+import data from "@/data.json";
+// import Index from '../dist/index.js'
+function TreeNode(props) {
+  // const {dataTree} = props
+  const dataTree = data;
+  const canvasRef = useRef(null);
+  return (
+    <div ref={canvasRef}>
+      <Header ref={canvasRef}></Header>
+      <Node dataTree={dataTree}></Node>
+    </div>
+  );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+export default TreeNode;
+
+// const Trees = () => (<div><Index /></div>)
+
+// export default Trees

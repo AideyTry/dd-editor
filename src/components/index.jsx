@@ -3,7 +3,7 @@ import { Select } from "antd";
 // import 'antd/dist/antd.css'
 import classNames from "classnames";
 
-import styles from "./index.less";
+import styles from './index.less';
 const { Option } = Select;
 const Node = props => {
   const { dataTree, isChild } = props;

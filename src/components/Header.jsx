@@ -1,6 +1,6 @@
 import React, { Fragment, useReducer, forwardRef } from "react";
 import IconFont from "@/components/IconFont";
-import styles from "./header.less";
+import styles from "@/components/header.less";
 
 function setZoom(ref, size) {
   ref.setAttribute(
