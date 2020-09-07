@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2020-09-06 22:47:19
+ * @LastEditTime: 2020-09-07 15:53:35
  * @LastEditors: Aiden
  * @Description:
  */
@@ -20,7 +20,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
-        exclude: [path.resolve(__dirname, "node_modules")]
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -60,27 +60,7 @@ module.exports = {
           }
         ]
       }
-    ],
-    configureWebpack: {
-      //警告 webpack 的性能提示
-      performance: {
-        hints: "warning",
-        //入口起点的最大体积
-        maxEntrypointSize: 50000000,
-        //生成文件的最大体积
-        maxAssetSize: 30000000,
-        //只给出 js 文件的性能提示
-        assetFilter: function(assetFilename) {
-          return assetFilename.endsWith(".js");
-        }
-      }
-    },
-    externals: Object.keys(pkg.dependencies).map(
-      pkgName => (context, request, callback) => {
-        // 逻辑：以模块名 pkgName 开始的引用都将视为外部模块
-        request.indexOf(pkgName) === 0 ? callback(null, request) : callback();
-      }
-    )
+    ]
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".less"], // 表示这几个文件的后缀名都可以省略不写，按照顺序依次查找。

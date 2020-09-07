@@ -1,7 +1,7 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-06 22:48:06
+ * @LastEditTime: 2020-09-07 10:19:22
  * @LastEditors: Aiden
  * @Description:
  */
@@ -14,8 +14,7 @@ import Header from "@/components/Header";
 import data from "@/data.json";
 // import Index from '../dist/index.js'
 function TreeNode(props) {
-  // const {dataTree} = props
-  const dataTree = data;
+  const dataTree = props.dataTree || data
   const canvasRef = useRef(null);
   return (
     <div ref={canvasRef}>
@@ -26,7 +25,3 @@ function TreeNode(props) {
 }
 
 export default TreeNode;
-
-// const Trees = () => (<div><Index /></div>)
-
-// export default Trees
