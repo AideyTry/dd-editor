@@ -1,26 +1,41 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2020-09-07 15:53:35
+ * @LastEditTime: 2020-09-08 15:29:03
  * @LastEditors: Aiden
  * @Description:
  */
 const path = require("path");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: "./src/index.js",
+  devtool: "source-map",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "commonjs2"
+  },
+  externals: {
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "react",
+      root: "react"
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "react-dom",
+      root: "reactDOM"
+    }
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
