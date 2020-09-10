@@ -1,12 +1,8 @@
 import React, { Fragment, useRef } from "react";
-import { Select } from "antd";
-// import 'antd/dist/antd.css'
 import classNames from "classnames";
-
 import styles from './index.less';
-const { Option } = Select;
 const Node = props => {
-  const { dataTree, isChild } = props;
+  const { dataTree, NodeContainer, isChild } = props;
   const currentRef = useRef(null);
   const isLeaf = data => (data.children ? "" : "leaf-node");
   return (
@@ -27,11 +23,7 @@ const Node = props => {
               styles[`${isLeaf(item)}`]
             )}
           >
-            {/* {item.name} */}
-            <Select defaultValue="lucy" style={{ width: '120px' }} allowClear>
-              <Option value="lucy">Lucy</Option>
-              <Option value="jack">jack</Option>
-            </Select>
+            <NodeContainer />
           </span>
           {item.children && (
             <div
@@ -43,7 +35,7 @@ const Node = props => {
                   : styles["single-node"]
               )}
             >
-              <Node dataTree={item.children} isChild />
+              <Node dataTree={item.children} NodeContainer={NodeContainer} isChild />
             </div>
           )}
         </div>
