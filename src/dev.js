@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:40:59
- * @LastEditTime: 2020-09-10 23:22:56
+ * @LastEditTime: 2020-09-11 13:36:44
  * @LastEditors: Aiden
  * @Description:
  */
@@ -11,9 +11,9 @@ import { Select } from "antd";
 import "antd/dist/antd.css";
 import data from "@/data.json";
 const { Option } = Select;
-// 自定义的组件
-// import TreeNode from "./index.js";
-import TreeNode from "../dist/index.js";
+
+import TreeNode from "./index.js";
+// import TreeNode from "../dist/index.js";
 
 const NodeContainer = () => (
   <Select defaultValue="1" style={{ width: "120px" }} allowClear>

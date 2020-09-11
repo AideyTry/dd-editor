@@ -1,8 +1,8 @@
 {
   "name": "dd-editor",
   "version": "1.0.0",
-  "main": "dev.js",
-  "repository": "https://github.com/jason19901028/dd-editor.git",
+  "main": "index.js",
+  "repository": "https://github.com/aidenfly/dd-editor.git",
   "author": "Aiden",
   "license": "MIT",
   "scripts": {

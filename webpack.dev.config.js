@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2020-09-08 15:22:31
+ * @LastEditTime: 2020-09-11 13:36:13
  * @LastEditors: Aiden
  * @Description:
  */
@@ -70,7 +70,7 @@ module.exports = {
     }
   },
   devServer: {
-    port: "7700",
+    port: "8800",
     progress: true,
     contentBase: "./public",
     compress: true,
