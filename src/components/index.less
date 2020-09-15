@@ -5,20 +5,22 @@
   margin-bottom: 10px !important;
 }
 .process-tree-node{
+  display: flex!important;
+  justify-content: center;
+  align-items: center;
   position: relative;
   padding:6px 10px;
   background:#fff;
   border-radius:2px;
   color:#333;
-  display:inline-block;
-  cursor: pointer;
   min-width:80px;
-  text-align:center;
   font-size: 12px;
-  line-height: 1.8em;
-  vertical-align: middle;
-  min-height:20px;
   border: 1px solid #00f;
+  .icon-operating{
+    margin: 0 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
 }
 .process-tree-node:after{
   position: absolute;
