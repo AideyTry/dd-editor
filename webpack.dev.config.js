@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2020-09-11 13:36:13
+ * @LastEditTime: 2020-09-16 17:04:30
  * @LastEditors: Aiden
  * @Description:
  */
@@ -17,9 +17,17 @@ module.exports = {
     path: path.resolve(__dirname, "/dist")
   },
   module: {
-    rules: [
+    rules: [ // loader默认是从右向左执行，从下到上
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx)/,
+        use: 'eslint-loader',
+        exclude: [path.resolve(__dirname, "node_modules")]
+        // options: {
+        //   enforce: 'pre' // previous
+        // }
+      },
+      {
+        test: /\.(js|jsx)$/, // normal普通的loader
         use: "babel-loader",
         exclude: [path.resolve(__dirname, "node_modules")]
       },

@@ -42,9 +42,9 @@ function reducer(state, action) {
       throw new Error();
   }
 }
-
 const Header = forwardRef((props, canvasRef) => {
   const [cunter, cDispatch] = useReducer(reducer, initialState);
+  console.log("cunter=", cunter);
   const onZoomIn = () => {
     cDispatch({ type: "increment", ref: canvasRef.current.children[1] });
   };

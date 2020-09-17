@@ -1,13 +1,14 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-14 12:08:10
+ * @LastEditTime: 2020-09-17 13:26:32
  * @LastEditors: Aiden
  * @Description:
  */
 
 import "@babel/polyfill";
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
 import "antd/dist/antd.css";
 import Node from "@/components";
 import Header from "@/components/Header";
@@ -23,5 +24,9 @@ function TreeNode(props) {
     </div>
   );
 }
+TreeNode.propTypes = {
+  treeData: PropTypes.array,
+  NodeContainer: PropTypes.func
+};
 
 export default TreeNode;

@@ -1,4 +1,5 @@
 import React, { Fragment, useRef } from "react";
+import PropTypes from "prop-types";
 import IconFont from "@/components/IconFont";
 import classNames from "classnames";
 import styles from "./index.less";
@@ -13,7 +14,6 @@ const Node = props => {
     console.log("newTree=", newTree);
     const toTreeData = toTree(newTree, -1);
     console.log("toTree=", toTreeData);
-    debugger;
   };
   const onDelete = () => {};
   return (
@@ -69,6 +69,12 @@ const Node = props => {
       ))}
     </Fragment>
   );
+};
+
+Node.propTypes = {
+  dataTree: PropTypes.array,
+  isChild: PropTypes.bool,
+  NodeContainer: PropTypes.func
 };
 
 Node.defaultProps = {
