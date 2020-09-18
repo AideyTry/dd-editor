@@ -11,14 +11,6 @@ const Node = props => {
   const currentRef = useRef(null);
   const isLeaf = data => (data.children ? "" : "leaf-node");
   const onAdd = info => {
-    // console.log('info=', info)
-    // const newTree = treeToList(dataTree);
-    // console.log("dataTree=", dataTree);
-    // console.log("newTree=", newTree);
-    // const toTreeData = toTree(newTree, -1);
-    // console.log("toTree=", toTreeData);
-    // console.log("useDataShare===", useDataShare.excute({ command: "add", param: [{e:3}] }));
-    console.log('uuidv4()===', uuidv4())
     const singleData = {
       id: uuidv4().replace(/-/g, ''),
       parentId: info.id,
@@ -26,7 +18,9 @@ const Node = props => {
     }
     useDataShare.excute({ command: "add", param: singleData })
   };
-  const onDelete = () => {};
+  const onDelete = info => {
+    useDataShare.excute({ command: "delete", param: info })
+  };
   return (
     <Fragment>
       {dataTree.map(item => (
@@ -49,7 +43,7 @@ const Node = props => {
               type="icon-clear"
               style={{ color: "#F4374C" }}
               className={styles["icon-operating"]}
-              onClick={onDelete}
+              onClick={() => onDelete(item)}
             />
             <NodeContainer info={item.name}/>
             <IconFont

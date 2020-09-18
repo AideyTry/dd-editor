@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-18 18:14:51
+ * @LastEditTime: 2020-09-19 00:28:00
  * @LastEditors: Aiden
  * @Description:
  */
@@ -53,4 +53,27 @@ export function toTree(data, parId) {
     }
   }
   return result;
+}
+
+/**
+ * @description: 通过广度优先搜索算法，对元素节点进行删除操作
+ * @params: 
+ * @return {type} 
+ */
+export function deleteNode(tree, node){
+  let queue = []
+  const out = []
+  queue = queue.concat(tree)
+  while(queue.length){
+    let first = queue.shift()
+    if(first.id === node.id){
+      continue
+    }
+    if(first.children){
+      queue = queue.concat(first.children);
+      delete first["children"]
+    }
+    out.push(first)
+  }
+  return out
 }

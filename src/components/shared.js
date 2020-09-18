@@ -1,12 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-18 18:11:29
+ * @LastEditTime: 2020-09-19 00:24:39
  * @LastEditors: Aiden
  * @Description:
  */
 // import React, { useReducer } from "react";
-import { treeToList, toTree } from "@/untils";
+import { treeToList, toTree, deleteNode} from "@/untils";
 
 /**
  * @description: 观察者模式
@@ -59,7 +59,9 @@ const useDataShare = (() => {
       Action.retrieve()
     },
     delete: info => {
-      data.push(info);
+     const newData = deleteNode(toTree(data, -1), info)
+     data = newData
+     Action.retrieve()
     },
     retrieve: () => {
      const result = toTree(data, -1);
