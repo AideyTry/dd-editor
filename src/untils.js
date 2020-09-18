@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-19 00:28:00
+ * @LastEditTime: 2020-09-19 00:30:37
  * @LastEditors: Aiden
  * @Description:
  */
@@ -57,8 +57,8 @@ export function toTree(data, parId) {
 
 /**
  * @description: 通过广度优先搜索算法，对元素节点进行删除操作
- * @params: 
- * @return {type} 
+ * @params: tree{Array}, node{Object}
+ * @return {Array} 
  */
 export function deleteNode(tree, node){
   let queue = []
