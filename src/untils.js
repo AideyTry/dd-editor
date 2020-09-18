@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-15 17:58:57
+ * @LastEditTime: 2020-09-18 18:14:51
  * @LastEditors: Aiden
  * @Description:
  */
@@ -11,19 +11,19 @@
  * @return {Array}
  */
 export function treeToList(tree) {
-  var queen = [];
-  var out = [];
+  let queen = [];
+  let out = [];
   queen = queen.concat(tree);
   while (queen.length) {
-    var first = queen.shift();
+    let first = queen.shift();
     if (first.children) {
       queen = queen.concat(first.children);
       delete first["children"];
     }
-
     out.push(first);
   }
   return out;
+
 }
 
 /**
@@ -31,7 +31,9 @@ export function treeToList(tree) {
  * @params: list{Array}, parId{Number}
  * @return {Array}
  */
-export function toTree(list, parId) {
+export function toTree(data, parId) {
+  // console.log('list===========', list)
+  let list = JSON.parse(JSON.stringify(data))
   let obj = {};
   let result = [];
   //将数组中数据转为键值对结构 (这里的数组和obj会相互引用)

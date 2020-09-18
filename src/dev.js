@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:40:59
- * @LastEditTime: 2020-09-17 11:22:27
+ * @LastEditTime: 2020-09-18 17:43:00
  * @LastEditors: Aiden
  * @Description:
  */
@@ -15,11 +15,14 @@ const { Option } = Select;
 import TreeNode from "./index.js";
 // import TreeNode from "../dist/index.js";
 
-const NodeContainer = () => (
+const NodeContainer = info => (
+  <>
+  {/* {console.log('dev info=', info)} */}
   <Select defaultValue="1" style={{ width: "120px" }} allowClear>
-    <Option value="1">Lucy11</Option>
+    <Option value="1">{info.info}</Option>
     <Option value="2">jack22</Option>
   </Select>
+  </>
 );
 
 const Dev = () => {

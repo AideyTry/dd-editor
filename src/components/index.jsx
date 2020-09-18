@@ -2,18 +2,29 @@ import React, { Fragment, useRef } from "react";
 import PropTypes from "prop-types";
 import IconFont from "@/components/IconFont";
 import classNames from "classnames";
+import { v4 as uuidv4 } from 'uuid';
 import styles from "./index.less";
-import { treeToList, toTree } from "@/untils";
+// import { treeToList, toTree } from "@/untils";
+import { useDataShare } from "./shared";
 const Node = props => {
   const { dataTree, NodeContainer, isChild } = props;
   const currentRef = useRef(null);
   const isLeaf = data => (data.children ? "" : "leaf-node");
-  const onAdd = () => {
-    const newTree = treeToList(dataTree);
-    console.log("dataTree=", dataTree);
-    console.log("newTree=", newTree);
-    const toTreeData = toTree(newTree, -1);
-    console.log("toTree=", toTreeData);
+  const onAdd = info => {
+    // console.log('info=', info)
+    // const newTree = treeToList(dataTree);
+    // console.log("dataTree=", dataTree);
+    // console.log("newTree=", newTree);
+    // const toTreeData = toTree(newTree, -1);
+    // console.log("toTree=", toTreeData);
+    // console.log("useDataShare===", useDataShare.excute({ command: "add", param: [{e:3}] }));
+    console.log('uuidv4()===', uuidv4())
+    const singleData = {
+      id: uuidv4().replace(/-/g, ''),
+      parentId: info.id,
+      name: uuidv4().replace(/-/g, '')
+    }
+    useDataShare.excute({ command: "add", param: singleData })
   };
   const onDelete = () => {};
   return (
@@ -40,12 +51,12 @@ const Node = props => {
               className={styles["icon-operating"]}
               onClick={onDelete}
             />
-            <NodeContainer />
+            <NodeContainer info={item.name}/>
             <IconFont
               type="icon-add"
               style={{ color: "#24803D" }}
               className={styles["icon-operating"]}
-              onClick={onAdd}
+              onClick={() => onAdd(item)}
             />
           </span>
           {item.children && (
