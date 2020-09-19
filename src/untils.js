@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-19 00:30:37
+ * @LastEditTime: 2020-09-20 03:21:03
  * @LastEditors: Aiden
  * @Description:
  */
@@ -76,4 +76,29 @@ export function deleteNode(tree, node){
     out.push(first)
   }
   return out
+}
+
+export class Stack{
+  constructor(max = 1000){
+    // 空间
+    this.data = new Array(max)
+    // 栈顶（栈指针）
+    this.top = -1
+    this.max = max
+  }
+  push(x){
+    if(this.top === this.max - 1){
+      throw 'stackoverflow'
+    }
+    this.top ++
+    this.data[this.top] = x
+  }
+  pop(){
+    if(this.top === -1){
+      throw 'stackunderflow'
+    }
+    const x = this.data[this.top]
+    this.top --
+    return x
+  }
 }

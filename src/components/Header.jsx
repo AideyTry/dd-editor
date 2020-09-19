@@ -1,6 +1,7 @@
 import React, { Fragment, useReducer, forwardRef } from "react";
 import IconFont from "@/components/IconFont";
 import styles from "@/components/header.less";
+import { useDataShare } from "./shared";
 
 function setZoom(ref, size) {
   ref.setAttribute(
@@ -51,18 +52,25 @@ const Header = forwardRef((props, canvasRef) => {
   const onZoomOut = () => {
     cDispatch({ type: "decrement", ref: canvasRef.current.children[1] });
   };
+  const undo = () => {
+    console.log('useDataShare=', useDataShare)
+    useDataShare.excute({ command: "undo" })
+  }
+  const redo = () => {
+    useDataShare.excute({ command: "redo" })
+  }
   return (
     <Fragment>
       <header className={styles["header-wraper"]}>
         <IconFont
           type="icon-undo"
           className={styles["toolbar-icon"]}
-          onClick={onZoomOut}
+          onClick={undo}
         />
         <IconFont
           type="icon-redo"
           className={styles["toolbar-icon"]}
-          onClick={onZoomIn}
+          onClick={redo}
         />
         <IconFont
           type="icon-zoomin"

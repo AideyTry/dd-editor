@@ -1,12 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-19 00:24:39
+ * @LastEditTime: 2020-09-20 03:16:13
  * @LastEditors: Aiden
  * @Description:
  */
 // import React, { useReducer } from "react";
-import { treeToList, toTree, deleteNode} from "@/untils";
+import { treeToList, toTree, deleteNode, Stack } from "@/untils";
 
 /**
  * @description: 观察者模式
@@ -45,36 +45,53 @@ export const Observer = (function() {
 
 const useDataShare = (() => {
   let data = [];
+  let stack = new Stack();
+  let stack1 = new Stack();
   const Action = {
     init: info => {
       console.log("init===", info);
       data = Object.assign([], info);
       data = treeToList(data);
-      console.log('data tree=', data)
+      console.log("data tree=", data);
     },
     add: info => {
-      console.log('add info=', info)
-      console.log('data===============', data)
+      console.log("add info=", info);
+      console.log("data===============", data);
+      const list = JSON.parse(JSON.stringify(data));
+      stack.push(list);
       data.push(info);
-      Action.retrieve()
+      Action.retrieve();
     },
     delete: info => {
-     const newData = deleteNode(toTree(data, -1), info)
-     data = newData
-     Action.retrieve()
+      const list = JSON.parse(JSON.stringify(data));
+      stack.push(list);
+      const newData = deleteNode(toTree(data, -1), info);
+      data = newData;
+      Action.retrieve();
+    },
+    undo: () => {
+      const list = JSON.parse(JSON.stringify(data));
+      stack1.push(list);
+      console.log('stack=', stack)
+      data = stack.pop();
+      Action.retrieve();
+    },
+    redo: () => {
+      const list = JSON.parse(JSON.stringify(data));
+      stack.push(list);
+      data = stack1.pop();
+      Action.retrieve();
     },
     retrieve: () => {
-     const result = toTree(data, -1);
-     console.log('msg tree=', result)
+      const result = toTree(data, -1);
       Observer.dispatch("tree", { msg: result });
-      // data = treeToList(result);
       return result;
     }
   };
   return {
     // 命令接口
     excute: function(msg) {
-      console.log('msg===', msg)
+      console.log("msg===", msg);
       if (!msg) {
         return;
       }
@@ -84,9 +101,9 @@ const useDataShare = (() => {
         }
       } else {
         // msg.param =
-          // Object.prototype.toString.call(msg.param) === "[object Array]"
-          //   ? msg.param
-          //   : [msg.param];
+        // Object.prototype.toString.call(msg.param) === "[object Array]"
+        //   ? msg.param
+        //   : [msg.param];
         Action[msg.command].call(Action, msg.param);
       }
     }
