@@ -1,7 +1,7 @@
 /*
  * @Author: DaiLinBo
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-18 17:15:45
+ * @LastEditTime: 2020-09-20 22:25:08
  * @LastEditors: Aiden
  * @Description:
  */
@@ -19,10 +19,8 @@ function TreeNode(props) {
   const [dataTree, setDataTree] = useState(treeData || data)
   const canvasRef = useRef(null);
   useEffect(() => {
-    console.log('treeData=====', treeData)
     useDataShare.excute({ command: "init", param: treeData })
     Observer.subscribe('tree', e => {
-      console.log('e===', e.args.msg)
       setDataTree(e.args.msg)
     })
   }, [])

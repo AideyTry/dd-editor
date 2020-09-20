@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-20 03:16:13
+ * @LastEditTime: 2020-09-20 22:22:44
  * @LastEditors: Aiden
  * @Description:
  */
@@ -45,42 +45,41 @@ export const Observer = (function() {
 
 const useDataShare = (() => {
   let data = [];
-  let stack = new Stack();
-  let stack1 = new Stack();
+  let undoStack = new Stack();
+  let redoStack = new Stack();
   const Action = {
     init: info => {
-      console.log("init===", info);
       data = Object.assign([], info);
       data = treeToList(data);
-      console.log("data tree=", data);
     },
     add: info => {
-      console.log("add info=", info);
-      console.log("data===============", data);
       const list = JSON.parse(JSON.stringify(data));
-      stack.push(list);
+      undoStack.push(list);
       data.push(info);
       Action.retrieve();
     },
     delete: info => {
       const list = JSON.parse(JSON.stringify(data));
-      stack.push(list);
+      undoStack.push(list);
       const newData = deleteNode(toTree(data, -1), info);
       data = newData;
       Action.retrieve();
     },
     undo: () => {
-      const list = JSON.parse(JSON.stringify(data));
-      stack1.push(list);
-      console.log('stack=', stack)
-      data = stack.pop();
-      Action.retrieve();
+      if (undoStack.data.length > 0) {
+        const list = JSON.parse(JSON.stringify(data));
+        redoStack.push(list);
+        data = undoStack.pop();
+        Action.retrieve();
+      }
     },
     redo: () => {
-      const list = JSON.parse(JSON.stringify(data));
-      stack.push(list);
-      data = stack1.pop();
-      Action.retrieve();
+      if (redoStack.data.length > 0) {
+        const list = JSON.parse(JSON.stringify(data));
+        undoStack.push(list);
+        data = redoStack.pop();
+        Action.retrieve();
+      }
     },
     retrieve: () => {
       const result = toTree(data, -1);
@@ -91,7 +90,6 @@ const useDataShare = (() => {
   return {
     // 命令接口
     excute: function(msg) {
-      console.log("msg===", msg);
       if (!msg) {
         return;
       }
@@ -106,6 +104,10 @@ const useDataShare = (() => {
         //   : [msg.param];
         Action[msg.command].call(Action, msg.param);
       }
+    },
+    stack: {
+      undoStack: undoStack.data,
+      redoStack: redoStack.data
     }
   };
 })();

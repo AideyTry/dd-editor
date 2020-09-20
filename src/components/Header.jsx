@@ -1,6 +1,7 @@
 import React, { Fragment, useReducer, forwardRef } from "react";
 import IconFont from "@/components/IconFont";
 import styles from "@/components/header.less";
+import classNames from "classnames";
 import { useDataShare } from "./shared";
 
 function setZoom(ref, size) {
@@ -45,7 +46,7 @@ function reducer(state, action) {
 }
 const Header = forwardRef((props, canvasRef) => {
   const [cunter, cDispatch] = useReducer(reducer, initialState);
-  console.log("cunter=", cunter);
+  console.log('cunter=', cunter)
   const onZoomIn = () => {
     cDispatch({ type: "increment", ref: canvasRef.current.children[1] });
   };
@@ -53,23 +54,28 @@ const Header = forwardRef((props, canvasRef) => {
     cDispatch({ type: "decrement", ref: canvasRef.current.children[1] });
   };
   const undo = () => {
-    console.log('useDataShare=', useDataShare)
-    useDataShare.excute({ command: "undo" })
-  }
+    useDataShare.excute({ command: "undo" });
+  };
   const redo = () => {
-    useDataShare.excute({ command: "redo" })
-  }
+    useDataShare.excute({ command: "redo" });
+  };
   return (
     <Fragment>
       <header className={styles["header-wraper"]}>
         <IconFont
           type="icon-undo"
-          className={styles["toolbar-icon"]}
+          className={classNames(
+            styles["toolbar-icon"],
+            useDataShare.stack.undoStack <= 0 ? styles["toolbar-icon-default"] : ""
+          )}
           onClick={undo}
         />
         <IconFont
           type="icon-redo"
-          className={styles["toolbar-icon"]}
+          className={classNames(
+            styles["toolbar-icon"],
+            useDataShare.stack.redoStack <= 0 ? styles["toolbar-icon-default"] : ""
+          )}
           onClick={redo}
         />
         <IconFont
