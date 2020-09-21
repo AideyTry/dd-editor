@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-21 13:35:48
+ * @LastEditTime: 2020-09-21 14:21:49
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -19,6 +19,7 @@ function TreeNode(props) {
   const canvasRef = useRef(null);
   useEffect(() => {
     useDataShare.excute({ command: "init", param: treeData })
+    // 订阅tree的数据结构是否发生变化，如果发生了变化就及时更新整个树。
     Observer.subscribe('tree', e => {
       setDataTree(e.args.msg)
     })

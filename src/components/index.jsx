@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2020-09-21 13:37:36
+ * @LastEditTime: 2020-09-21 14:18:21
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -16,15 +16,27 @@ const Node = props => {
   const { dataTree, NodeContainer, isChild } = props;
   const currentRef = useRef(null);
   const isLeaf = data => (data.children ? "" : "leaf-node");
+  /**
+   * @description: 增加节点
+   * @params: info{Object}
+   * @return {undefined} 
+   */
   const onAdd = info => {
     const singleData = {
       id: uuidv4().replace(/-/g, ""),
       parentId: info.id,
       name: uuidv4().replace(/-/g, "")
     };
+    // 执行命令行，添加节点
     useDataShare.excute({ command: "add", param: singleData });
   };
+  /**
+   * @description: 删除节点
+   * @params: info{Object}
+   * @return {undefined} 
+   */
   const onDelete = info => {
+    // 执行命令行删除节点
     useDataShare.excute({ command: "delete", param: info });
   };
   return (

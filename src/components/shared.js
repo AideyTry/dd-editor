@@ -1,17 +1,15 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-21 13:38:02
+ * @LastEditTime: 2020-09-21 14:16:05
  * @LastEditors: Aiden
- * @Description: 
+ * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
-// import React, { useReducer } from "react";
+
 import { treeToList, toTree, deleteNode, Stack } from "@/untils";
 
 /**
- * @description: 观察者模式
- * @params:
- * @return {type}
+ * @description: 观察者模式封装
  */
 export const Observer = (function() {
   const _messages = {};
@@ -43,6 +41,9 @@ export const Observer = (function() {
   };
 })();
 
+/**
+ * @description: 命令模式实现节点的增删以及undo/redo操作
+ */
 const useDataShare = (() => {
   let data = [];
   let undoStack = new Stack();

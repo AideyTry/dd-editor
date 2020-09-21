@@ -1,10 +1,11 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-21 13:26:27
+ * @LastEditTime: 2020-09-21 14:12:00
  * @LastEditors: Aiden
- * @Description:
+ * @Description: This is the public methods.
  */
+
 /**
  * @description: 使用广度优先来进行树转换为数组扁平化操作
  * @params: tree{Array}
