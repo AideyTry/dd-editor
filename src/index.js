@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-21 14:21:49
+ * @LastEditTime: 2020-09-21 17:35:45
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -15,7 +15,7 @@ import data from "@/data.json";
 import { useDataShare, Observer } from "@/components/shared";
 function TreeNode(props) {
   const { NodeContainer, treeData } = props;
-  const [dataTree, setDataTree] = useState(treeData || data)
+  const [dataTree, setDataTree] = useState(treeData)
   const canvasRef = useRef(null);
   useEffect(() => {
     useDataShare.excute({ command: "init", param: treeData })
@@ -34,6 +34,16 @@ function TreeNode(props) {
 TreeNode.propTypes = {
   treeData: PropTypes.array,
   NodeContainer: PropTypes.func
+};
+
+TreeNode.defaultProps = {
+  treeData: data,
+  NodeContainer: info => (
+    <select defaultValue="1">
+      <option value="1">{info.info}</option>
+      <option value="2">jack22</option>
+    </select>
+  )
 };
 
 export default TreeNode;

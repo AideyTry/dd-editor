@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2020-09-21 13:25:10
+ * @LastEditTime: 2020-09-21 18:01:01
  * @LastEditors: Aiden
  * @Description:
  */
@@ -13,7 +13,7 @@ module.exports = {
   devtool: "source-map",
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
     libraryTarget: "commonjs2"
   },
   externals: {
@@ -35,10 +35,11 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
-        exclude: /node_modules/
+        exclude: [path.resolve(__dirname, "../node_modules")]
       },
       {
         test: /\.css$/,
+        exclude: [path.resolve(__dirname, "../node_modules")],
         use: [
           "style-loader",
           {
@@ -49,7 +50,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        exclude: /node_modules/,
+        exclude: [path.resolve(__dirname, "../node_modules")],
         use: [
           "style-loader",
           {
@@ -64,6 +65,7 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jpg|eot|svg|ttf|woff|woff2)$/,
+        exclude: [path.resolve(__dirname, "../node_modules")],
         use: [
           {
             loader: "url-loader",
@@ -79,7 +81,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json"], // 表示这几个文件的后缀名都可以省略不写，按照顺序依次查找。
     alias: {
-      "@": path.join(__dirname, "./src")
+      "@": path.join(__dirname, "../src")
     }
   }
 };

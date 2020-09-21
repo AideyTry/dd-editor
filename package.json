@@ -6,8 +6,8 @@
   "author": "Aiden",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --env.NODE_ENV=production",
-    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development"
+    "build": "webpack --env.NODE_ENV=production --config config/webpack.config.js",
+    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js"
   },
   "files": [
     "dist"

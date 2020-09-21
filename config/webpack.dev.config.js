@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2020-09-21 13:58:22
+ * @LastEditTime: 2020-09-21 18:02:16
  * @LastEditors: Aiden
  * @Description:
  */
@@ -11,7 +11,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
-  entry: "./src/dev.js",
+  entry: "./examples/dev.js",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "/dist")
@@ -21,7 +21,7 @@ module.exports = {
       {
         test: /\.(js|jsx)/,
         use: 'eslint-loader',
-        exclude: [path.resolve(__dirname, "node_modules")]
+        exclude: [path.resolve(__dirname, "../node_modules")],
         // options: {
         //   enforce: 'pre' // previous
         // }
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/, // normal普通的loader
         use: "babel-loader",
-        exclude: [path.resolve(__dirname, "node_modules")]
+        exclude: [path.resolve(__dirname, "../node_modules")]
       },
       {
         test: /\.css$/,
@@ -74,13 +74,13 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json"], // 表示这几个文件的后缀名都可以省略不写，按照顺序依次查找。
     alias: {
-      "@": path.join(__dirname, "./src")
+      "@": path.join(__dirname, "../src")
     }
   },
   devServer: {
     port: "8800",
     progress: true,
-    contentBase: "./public",
+    contentBase: "../public",
     compress: true,
     open: true
   },
