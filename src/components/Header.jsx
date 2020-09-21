@@ -1,5 +1,5 @@
 import React, { Fragment, useReducer, forwardRef } from "react";
-import IconFont from "@/components/IconFont";
+import "@/components/IconFont/iconfont.css";
 import styles from "@/components/header.less";
 import classNames from "classnames";
 import { useDataShare } from "./shared";
@@ -46,7 +46,7 @@ function reducer(state, action) {
 }
 const Header = forwardRef((props, canvasRef) => {
   const [cunter, cDispatch] = useReducer(reducer, initialState);
-  console.log('cunter=', cunter)
+  console.log("cunter=", cunter);
   const onZoomIn = () => {
     cDispatch({ type: "increment", ref: canvasRef.current.children[1] });
   };
@@ -62,32 +62,44 @@ const Header = forwardRef((props, canvasRef) => {
   return (
     <Fragment>
       <header className={styles["header-wraper"]}>
-        <IconFont
-          type="icon-undo"
+        <span
           className={classNames(
+            "iconfont",
+            "icon-undo",
             styles["toolbar-icon"],
-            useDataShare.stack.undoStack <= 0 ? styles["toolbar-icon-default"] : ""
+            useDataShare.stack.undoStack <= 0
+              ? styles["toolbar-icon-default"]
+              : ""
           )}
           onClick={undo}
-        />
-        <IconFont
-          type="icon-redo"
+        ></span>
+        <span
           className={classNames(
+            "iconfont",
+            "icon-redo",
             styles["toolbar-icon"],
-            useDataShare.stack.redoStack <= 0 ? styles["toolbar-icon-default"] : ""
+            useDataShare.stack.redoStack <= 0
+              ? styles["toolbar-icon-default"]
+              : ""
           )}
           onClick={redo}
-        />
-        <IconFont
-          type="icon-zoomin"
-          className={styles["toolbar-icon"]}
+        ></span>
+        <span
+          className={classNames(
+            "iconfont",
+            "icon-zoomin",
+            styles["toolbar-icon"]
+          )}
           onClick={onZoomIn}
-        />
-        <IconFont
-          type="icon-zoomout"
-          className={styles["toolbar-icon"]}
+        ></span>
+        <span
+          className={classNames(
+            "iconfont",
+            "icon-zoomout",
+            styles["toolbar-icon"]
+          )}
           onClick={onZoomOut}
-        />
+        ></span>
       </header>
     </Fragment>
   );

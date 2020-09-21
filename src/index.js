@@ -1,15 +1,14 @@
 /*
- * @Author: DaiLinBo
+ * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-20 22:25:08
+ * @LastEditTime: 2020-09-21 13:35:48
  * @LastEditors: Aiden
- * @Description:
+ * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
 
 import "@babel/polyfill";
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "antd/dist/antd.css";
 import Node from "@/components";
 import Header from "@/components/Header";
 import data from "@/data.json";

@@ -1,0 +1,37 @@
+{
+    // 文件头部注释 Ctrl + Alt + i
+    "fileheader.customMade": {
+      "Author": "Aiden",
+      "Date": "Do not edit",
+      "LastEditTime": "Do not edit",
+      "LastEditors": "Aiden",
+      "Description": ""
+    },
+    // 函数注释  Ctrl + Alt + t
+    "fileheader.cursorMode": {
+      "description": "",
+      "params": "",
+      "return": ""
+    },
+    "eslint.options": {
+      "extensions": [".js", ".jsx", ".vue"]
+    },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "vue-html",
+      {
+        "language": "vue",
+        "autoFix": true
+      },
+      {
+        "language": "react",
+        "autoFix": true
+      },
+      {
+        "language": "html",
+        "autoFix": true
+      }
+    ],
+    "eslint.run": "onSave",
+}

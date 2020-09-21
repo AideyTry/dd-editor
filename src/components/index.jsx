@@ -1,10 +1,16 @@
+/*
+ * @Author: Aiden
+ * @Date: 2020-09-17 14:13:28
+ * @LastEditTime: 2020-09-21 13:37:36
+ * @LastEditors: Aiden
+ * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
+ */
 import React, { Fragment, useRef } from "react";
 import PropTypes from "prop-types";
-import IconFont from "@/components/IconFont";
+import "@/components/IconFont/iconfont.css";
 import classNames from "classnames";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import styles from "./index.less";
-// import { treeToList, toTree } from "@/untils";
 import { useDataShare } from "./shared";
 const Node = props => {
   const { dataTree, NodeContainer, isChild } = props;
@@ -12,14 +18,14 @@ const Node = props => {
   const isLeaf = data => (data.children ? "" : "leaf-node");
   const onAdd = info => {
     const singleData = {
-      id: uuidv4().replace(/-/g, ''),
+      id: uuidv4().replace(/-/g, ""),
       parentId: info.id,
-      name: uuidv4().replace(/-/g, '')
-    }
-    useDataShare.excute({ command: "add", param: singleData })
+      name: uuidv4().replace(/-/g, "")
+    };
+    useDataShare.excute({ command: "add", param: singleData });
   };
   const onDelete = info => {
-    useDataShare.excute({ command: "delete", param: info })
+    useDataShare.excute({ command: "delete", param: info });
   };
   return (
     <Fragment>
@@ -39,19 +45,25 @@ const Node = props => {
               styles[`${isLeaf(item)}`]
             )}
           >
-            <IconFont
-              type="icon-clear"
+            <span
               style={{ color: "#F4374C" }}
-              className={styles["icon-operating"]}
+              className={classNames(
+                "iconfont",
+                "icon-clear",
+                styles["icon-operating"]
+              )}
               onClick={() => onDelete(item)}
-            />
-            <NodeContainer info={item.name}/>
-            <IconFont
-              type="icon-add"
+            ></span>
+            <NodeContainer info={item.name} />
+            <span
               style={{ color: "#24803D" }}
-              className={styles["icon-operating"]}
+              className={classNames(
+                "iconfont",
+                "icon-add",
+                styles["icon-operating"]
+              )}
               onClick={() => onAdd(item)}
-            />
+            ></span>
           </span>
           {item.children && (
             <div

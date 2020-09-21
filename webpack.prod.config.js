@@ -1,14 +1,14 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2020-09-08 15:29:03
+ * @LastEditTime: 2020-09-21 13:25:10
  * @LastEditors: Aiden
  * @Description:
  */
 const path = require("path");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   devtool: "source-map",
   output: {
@@ -63,14 +63,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|gif|jpg)$/,
+        test: /\.(png|gif|jpg|eot|svg|ttf|woff|woff2)$/,
         use: [
           {
             loader: "url-loader",
             options: {
               // 做一个限制，当我们图标小于多少时用base64来转化，否则用file-loader产生真实的图片。
               limit: 1
-              // outputPath: '/img/'
             }
           }
         ]
@@ -78,7 +77,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".less"], // 表示这几个文件的后缀名都可以省略不写，按照顺序依次查找。
+    extensions: [".js", ".jsx", ".json"], // 表示这几个文件的后缀名都可以省略不写，按照顺序依次查找。
     alias: {
       "@": path.join(__dirname, "./src")
     }

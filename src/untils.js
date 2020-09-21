@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-20 21:56:58
+ * @LastEditTime: 2020-09-21 13:26:27
  * @LastEditors: Aiden
  * @Description:
  */
@@ -32,7 +32,6 @@ export function treeToList(tree) {
  * @return {Array}
  */
 export function toTree(data, parId) {
-  // console.log('list===========', list)
   let list = JSON.parse(JSON.stringify(data))
   let obj = {};
   let result = [];
@@ -78,30 +77,19 @@ export function deleteNode(tree, node){
   return out
 }
 
+/**
+ * @description: 栈结构
+ * @params: 
+ * @return {type} 
+ */
 export class Stack{
   constructor(){
-    // 空间
-    // this.data = new Array(max)
-    // // 栈顶（栈指针）
-    // this.top = -1
-    // this.max = max
     this.data = []
   }
   push(x){
-    // if(this.top === this.max - 1){
-    //   throw 'stackoverflow'
-    // }
-    // this.top ++
-    // this.data[this.top] = x
     this.data.push(x)
   }
   pop(){
-    // if(this.top === -1){
-    //   throw 'stackunderflow'
-    // }
-    // const x = this.data[this.top]
-    // this.top --
-    // return x
     return this.data.pop()
   }
 }
