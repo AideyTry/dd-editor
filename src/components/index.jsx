@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2020-09-22 14:52:53
+ * @LastEditTime: 2020-09-22 17:17:16
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -46,14 +46,14 @@ const Node = props => {
           key={item.id}
           className={classNames(
             isChild
-              ? styles["process-tree-childNodes-row"]
-              : styles["process-tree-roots"],
-            dataTree.length > 1 ? styles["process-tree-childNodes-height"] : ""
+              ? styles["tree-childNodes-row"]
+              : styles["tree-root"],
+            dataTree.length > 1 ? styles["multiply-node"] : ""
           )}
         >
           <span
             className={classNames(
-              styles["process-tree-node"],
+              styles["tree-node"],
               styles[`${isLeaf(item)}`]
             )}
           >
@@ -81,10 +81,7 @@ const Node = props => {
             <div
               ref={currentRef}
               className={classNames(
-                styles["process-tree-childNodes"],
-                item.children.length > 1
-                  ? styles["multiply-node"]
-                  : styles["single-node"]
+                styles["tree-childNodes"],
               )}
             >
               <Node

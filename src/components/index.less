@@ -1,17 +1,16 @@
-.process-tree-roots{
+.tree-root{
   display: -webkit-flex;
   display: flex;
   align-items: center;
   margin-bottom: 10px !important;
 }
-.process-tree-node{
+.tree-node{
   display: flex!important;
   justify-content: center;
   align-items: center;
   position: relative;
   padding:6px 10px;
   background:#fff;
-  border-radius:2px;
   color:#333;
   min-width:80px;
   font-size: 12px;
@@ -22,42 +21,54 @@
     font-size: 16px;
   }
 }
-.process-tree-node:after{
+.tree-node::before {
   position: absolute;
   top: 50%;
-  left: 101%;
+  left: -30px;
   display: block;
   width: 30px;
+  height: 30px;
+  border: none;
+  border-top: 1px solid #00f;
+  content: '';
+}
+.tree-node:after{
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  display: block;
+  width: 31px;
   height: 1px;
+  border:none;
   background-color:#00f;
   content: '';
 }
 .leaf-node::after {
   display: none;
 }
-.process-tree-childNodes{
+.tree-childNodes{
   position: relative;
   display: inline-block;
   vertical-align: middle;
   margin-left: 60px;
 }
-.process-tree-childNodes> &{
+.tree-childNodes> &{
     display: -webkit-flex;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.process-tree-childNodes-row{
+.tree-childNodes-row{
   position: relative;
   display: -webkit-flex;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-.process-tree-childNodes-row:last-child{
+.tree-childNodes-row:last-child{
   margin-bottom: 0;
 }
-.process-tree-childNodes-row:before{
+.tree-childNodes-row:before{
   position: absolute;
   left: -30px;
   top: 50%;
@@ -67,7 +78,7 @@
   background-color:#00f;
   content: '';
 }
-.process-tree-childNodes-height::after{
+.multiply-node::after{
   position: absolute;
   box-sizing: border-box;
   left: -30px;
@@ -75,12 +86,11 @@
   display: block;
   width: 30px;
   height: calc(100% + 10px);
-  // background-color:#00f;
   border: none;
   border-left: 1px solid #00f;
   content: '';
 }
-.process-tree-childNodes-height:first-child:after{
+.multiply-node:first-child:after{
   position: absolute;
   box-sizing: border-box;
   left: -30px;
@@ -88,30 +98,18 @@
   display: block;
   width: 30px;
   height: calc(100%  - 50% + 10px);
-  // background-color:#00f;
   border: none;
   border-left: 1px solid #00f;
   content: '';
 }
-.process-tree-childNodes-height:last-child:after{
+.multiply-node:last-child:after{
   position: absolute;
   box-sizing: border-box;
   left: -30px;
   display: block;
   width: 30px;
   height: calc(100%  - 50%);
-  // background-color:#00f;
   border: none;
   border-left: 1px solid #00f;
-  content: '';
-}
-.single-node:before{
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  display: block;
-  width: 30px;
-  height: 1px;
-  background-color:#00f;
   content: '';
 }
