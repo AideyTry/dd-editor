@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2020-09-22 17:17:16
+ * @LastEditTime: 2020-09-22 17:53:27
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 import styles from "./index.less";
 import { useDataShare } from "./shared";
 const Node = props => {
-  const { dataTree, NodeContainer, isChild } = props;
+  const { dataTree, NodeContainer, isChild, editorEnable } = props;
   const currentRef = useRef(null);
   const isLeaf = data => (data.children ? "" : "leaf-node");
   /**
@@ -57,7 +57,7 @@ const Node = props => {
               styles[`${isLeaf(item)}`]
             )}
           >
-            <span
+            {editorEnable && <span
               style={{ color: "#F4374C" }}
               className={classNames(
                 "iconfont",
@@ -65,9 +65,9 @@ const Node = props => {
                 styles["icon-operating"]
               )}
               onClick={() => onDelete(item)}
-            ></span>
+            ></span>}
             <NodeContainer title={item.name} />
-            <span
+            {editorEnable && <span
               style={{ color: "#24803D" }}
               className={classNames(
                 "iconfont",
@@ -75,7 +75,7 @@ const Node = props => {
                 styles["icon-operating"]
               )}
               onClick={() => onAdd(item)}
-            ></span>
+            ></span>}
           </span>
           {item.children && (
             <div
@@ -87,6 +87,7 @@ const Node = props => {
               <Node
                 dataTree={item.children}
                 NodeContainer={NodeContainer}
+                editorEnable={editorEnable}
                 isChild
               />
             </div>
@@ -99,6 +100,7 @@ const Node = props => {
 
 Node.propTypes = {
   dataTree: PropTypes.array,
+  editorEnable: PropTypes.bool,
   isChild: PropTypes.bool,
   NodeContainer: PropTypes.func
 };
