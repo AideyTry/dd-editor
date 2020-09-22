@@ -1,6 +1,6 @@
 {
   "name": "dd-editor",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/aidenfly/dd-editor.git",
   "author": "Aiden",
@@ -26,11 +26,12 @@
     "@types/classnames": "^2.2.10",
     "antd": "^4.6.2",
     "classnames": "^2.2.6",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "uuid": "^8.3.0"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -50,6 +51,8 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.0",
     "postcss-loader": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.0",

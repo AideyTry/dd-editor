@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2020-09-21 14:18:21
+ * @LastEditTime: 2020-09-22 14:52:53
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -66,7 +66,7 @@ const Node = props => {
               )}
               onClick={() => onDelete(item)}
             ></span>
-            <NodeContainer info={item.name} />
+            <NodeContainer title={item.name} />
             <span
               style={{ color: "#24803D" }}
               className={classNames(
