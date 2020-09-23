@@ -102,7 +102,7 @@ Node.propTypes = {
   dataTree: PropTypes.array,
   editorEnable: PropTypes.bool,
   isChild: PropTypes.bool,
-  NodeContainer: PropTypes.func
+  NodeContainer: PropTypes.elementType
 };
 
 Node.defaultProps = {

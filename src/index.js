@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-22 17:58:59
+ * @LastEditTime: 2020-09-23 10:18:36
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -38,18 +38,13 @@ function TreeNode(props) {
 TreeNode.propTypes = {
   treeData: PropTypes.array,
   editorEnable: PropTypes.bool,
-  NodeContainer: PropTypes.func
+  NodeContainer: PropTypes.elementType
 };
 
 TreeNode.defaultProps = {
   treeData: data,
   editorEnable: true,
-  NodeContainer: info => (
-    <select defaultValue="1" style={{ width: "90px" }}>
-      <option value="1">{info.title}</option>
-      <option value="2">jack22</option>
-    </select>
-  )
+  NodeContainer: <React.Fragment></React.Fragment>
 };
 
 export default TreeNode;

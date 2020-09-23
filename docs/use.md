@@ -1,10 +1,15 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:48:16
- * @LastEditTime: 2020-09-22 15:55:14
+ * @LastEditTime: 2020-09-23 10:43:35
  * @LastEditors: Aiden
  * @Description: 
 -->
+
+## 效果
+
+![avatar](/public/images/treeNode.gif)
+
 ## 安装
 
 ```bash
@@ -22,7 +27,10 @@ yarn add dd-editor
 import DDEditor from 'dd-editor'
 <DDEditor treeData={data} NodeContainer={NodeContainer}></DDEditor>
 
-默认
+ (1) 必填项
+ NodeContainer{ReactNode}
+
+（2）默认值
 data{Array} = [
   {
     "id": 0,
@@ -42,11 +50,6 @@ data{Array} = [
   }
 ]
 
-NodeContainer{Function} = info => (
-    <select defaultValue="1">
-      <option value="1">{info.title}</option>
-      <option value="2">jack22</option>
-    </select>
-  )
+editorEnable{boolean} = true   为true显示编辑，为false只是显示
 
 ```
