@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-24 13:59:37
+ * @LastEditTime: 2020-09-24 16:59:23
  * @LastEditors: Aiden
  * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
@@ -12,15 +12,20 @@ import { treeToList, toTree, deleteNode, Stack } from "@/untils";
  * @description: 观察者模式封装
  */
 export const Observer = (function() {
+  // 消息队列
   const _messages = {};
   return {
+    // 订阅（注册）
     subscribe: function(type, fn) {
+      // 如果消息不存在则英国创建一个消息
       if (typeof _messages[type] === "undefined") {
         _messages[type] = [fn];
       } else {
+        // 将动作方法推入该消息对应的动作执行序列中，这样做的目的是保证多个模块注册统一则消息时能顺利执行
         _messages[type].push(fn);
       }
     },
+    // 注销
     unSubScribe: function(type, fn) {
       if (_messages[type] instanceof Array) {
         for (let i = _messages[type].length - 1; i >= 0; i--) {
@@ -28,11 +33,12 @@ export const Observer = (function() {
         }
       }
     },
+    // 发布
     dispatch: function(type, args) {
       if (!_messages[type]) return;
       const events = {
-        type,
-        args: args || {}
+        type, // 消息类型
+        args: args || {} // 携带的参数
       };
       for (let i = 0; i < _messages[type].length; i++) {
         _messages[type][i].call(this, events);

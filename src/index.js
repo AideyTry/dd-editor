@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-23 10:18:36
+ * @LastEditTime: 2020-09-24 16:49:13
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -16,6 +16,7 @@ import { useDataShare, Observer } from "@/components/shared";
 function TreeNode(props) {
   const { NodeContainer, treeData, editorEnable } = props;
   const [dataTree, setDataTree] = useState(treeData);
+  console.log('dataTree===', dataTree)
   const canvasRef = useRef(null);
   useEffect(() => {
     useDataShare.excute({ command: "init", param: treeData });
