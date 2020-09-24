@@ -1,13 +1,17 @@
 {
   "name": "dd-editor",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.1.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.js",
   "repository": "https://github.com/aidenfly/dd-editor.git",
+  "keywords": ["editor", "Component"],
   "author": "Aiden",
   "license": "MIT",
   "scripts": {
     "build": "webpack --env.NODE_ENV=production --config config/webpack.config.js",
-    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js"
+    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js",
+    "prepublish": "npm run build"
   },
   "files": [
     "dist"
@@ -24,7 +28,6 @@
     "@babel/polyfill": "^7.11.5",
     "@babel/runtime": "^7.11.2",
     "@types/classnames": "^2.2.10",
-    "antd": "^4.6.2",
     "classnames": "^2.2.6",
     "uuid": "^8.3.0"
   },
