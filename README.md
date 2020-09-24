@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-07-16 17:46:03
- * @LastEditTime: 2020-09-22 16:21:20
+ * @LastEditTime: 2020-09-24 15:21:03
  * @LastEditors: Aiden
  * @Description: 
 --> 
@@ -10,7 +10,7 @@
 
 [1、使用](./docs/use.md)
 
-[2、如何开发公共组件库以及发布到npm和yarn](./docs/deploy.md)
+[2、如何发布npm包以及开发公共前端组件库流程](./docs/deploy.md)
 
-[3、以此组件为基础学习数据结构和算法](./docs/learn.md)
+[3、dd-editor组件中用到的JavaScript数据结构、设计模式和算法](./docs/learn.md)
 

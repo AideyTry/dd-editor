@@ -5,13 +5,12 @@
   "module": "dist/index.js",
   "types": "dist/index.js",
   "repository": "https://github.com/aidenfly/dd-editor.git",
-  "keywords": ["editor", "Component"],
+  "keywords": ["editor", "Component", "React"],
   "author": "Aiden",
   "license": "MIT",
   "scripts": {
     "build": "webpack --env.NODE_ENV=production --config config/webpack.config.js",
     "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js",
-    "prepublish": "npm run build"
   },
   "files": [
     "dist"
