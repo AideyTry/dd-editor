@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2020-09-21 18:01:01
+ * @LastEditTime: 2020-09-24 13:15:49
  * @LastEditors: Aiden
  * @Description:
  */
@@ -10,7 +10,7 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
-  devtool: "source-map",
+  // devtool: "source-map",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "../dist"),

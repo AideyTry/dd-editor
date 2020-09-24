@@ -47,6 +47,7 @@ function reducer(state, action) {
 const Header = forwardRef((props, canvasRef) => {
   const [cunter, cDispatch] = useReducer(reducer, initialState);
   console.log("cunter=", cunter);
+  console.log('useDataShare===', useDataShare)
   const onZoomIn = () => {
     cDispatch({ type: "increment", ref: canvasRef.current.children[1] });
   };
@@ -67,7 +68,7 @@ const Header = forwardRef((props, canvasRef) => {
             "iconfont",
             "icon-undo",
             styles["toolbar-icon"],
-            useDataShare.stack.undoStack <= 0
+            useDataShare.stack.undoStack.count <= 0
               ? styles["toolbar-icon-default"]
               : ""
           )}
@@ -78,7 +79,7 @@ const Header = forwardRef((props, canvasRef) => {
             "iconfont",
             "icon-redo",
             styles["toolbar-icon"],
-            useDataShare.stack.redoStack <= 0
+            useDataShare.stack.redoStack.count <= 0
               ? styles["toolbar-icon-default"]
               : ""
           )}

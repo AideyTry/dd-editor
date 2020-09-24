@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-21 14:16:05
+ * @LastEditTime: 2020-09-24 13:59:37
  * @LastEditors: Aiden
  * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
@@ -56,6 +56,7 @@ const useDataShare = (() => {
     add: info => {
       const list = JSON.parse(JSON.stringify(data));
       undoStack.push(list);
+      console.log('undoStack=', undoStack)
       data.push(info);
       Action.retrieve();
     },
@@ -67,7 +68,7 @@ const useDataShare = (() => {
       Action.retrieve();
     },
     undo: () => {
-      if (undoStack.data.length > 0) {
+      if (!undoStack.isEmpty()) {
         const list = JSON.parse(JSON.stringify(data));
         redoStack.push(list);
         data = undoStack.pop();
@@ -75,7 +76,7 @@ const useDataShare = (() => {
       }
     },
     redo: () => {
-      if (redoStack.data.length > 0) {
+      if (!redoStack.isEmpty()) {
         const list = JSON.parse(JSON.stringify(data));
         undoStack.push(list);
         data = redoStack.pop();
@@ -107,8 +108,8 @@ const useDataShare = (() => {
       }
     },
     stack: {
-      undoStack: undoStack.data,
-      redoStack: redoStack.data
+      undoStack,
+      redoStack
     }
   };
 })();

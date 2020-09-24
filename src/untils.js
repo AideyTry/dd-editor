@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-21 14:12:00
+ * @LastEditTime: 2020-09-24 14:08:56
  * @LastEditors: Aiden
  * @Description: This is the public methods.
  */
@@ -79,18 +79,33 @@ export function deleteNode(tree, node){
 }
 
 /**
- * @description: 栈结构
+ * @description: 基于对象的栈结构(时间复杂度为O(1))
  * @params: 
  * @return {type} 
  */
 export class Stack{
   constructor(){
-    this.data = []
+    // count属性记录栈的大小
+    this.count = 0
+    this.items = {}
   }
-  push(x){
-    this.data.push(x)
+  size(){
+    return this.count
+  }
+  isEmpty(){
+    return this.count === 0
+  }
+  push(element){
+    this.items[this.count] = element
+    this.count++
   }
   pop(){
-    return this.data.pop()
+    if(this.isEmpty()){
+      return undefined
+    }
+    this.count--
+    const result = this.items[this.count]
+    delete this.items[this.count]
+    return result
   }
 }
