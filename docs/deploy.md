@@ -1,10 +1,12 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:08
- * @LastEditTime: 2020-09-24 11:05:50
+ * @LastEditTime: 2020-09-28 16:30:08
  * @LastEditors: Aiden
  * @Description: 
 -->
+[English](deploy.en-US.md) | 简体中文
+
 ## 1、npm包发布流程
 
 ### （1）、登陆到npm

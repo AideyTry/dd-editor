@@ -1,17 +1,17 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:48:16
- * @LastEditTime: 2020-09-28 16:06:48
+ * @LastEditTime: 2020-09-28 16:13:51
  * @LastEditors: Aiden
  * @Description: 
 -->
-[English](use.en-US.md) | 简体中文
+English | [简体中文](use.md)
 
-## 效果
+## Effect
 
 ![avatar](/public/images/treeNode.gif)
 
-## 安装
+## Installation
 
 ```bash
 npm install dd-editor --save
@@ -22,16 +22,16 @@ yarn add dd-editor
 ```
 
 
-## 使用
+## Usage
   
 ```bash
 import DDEditor from 'dd-editor'
 <DDEditor treeData={data} NodeContainer={NodeContainer}></DDEditor>
 
- (1) 必填项
+ (1) Required
  NodeContainer{ReactNode}
 
-（2）默认值
+（2）Default
 data{Array} = [
   {
     "id": 0,
@@ -51,6 +51,7 @@ data{Array} = [
   }
 ]
 
-editorEnable{boolean} = true   为true显示编辑，为false只是显示
+editorEnable{boolean} = true   
+true is to edit, false is to display.
 
 ```

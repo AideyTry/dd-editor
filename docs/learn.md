@@ -1,10 +1,12 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:46
- * @LastEditTime: 2020-09-28 10:20:56
+ * @LastEditTime: 2020-09-28 17:27:02
  * @LastEditors: Aiden
  * @Descripti
 -->
+[English](learn.en-US.md) | 简体中文
+
 ## 1、数据结构
 ```bash
 dd-editor中除用到的数组、对象数据结构外还用到了树、堆栈、队列
@@ -67,3 +69,66 @@ export function treeToList(tree) {
   return out;
 }
 ```
+
+## 2、算法
+### （1）、递归
+```bash
+递归是一种解决问题的方法，它从解决问题的各个小部分开始，直到解决最初的大问题。递归通常涉及函数调用自身。
+dd-editor中运用递归，当存在childen属性的时候递归去调用Node组件，代码如下：
+    <Fragment>
+      {dataTree.map(item => (
+        <div
+          key={item.id}
+          className={classNames(
+            isChild
+              ? styles["tree-childNodes-row"]
+              : styles["tree-root"],
+            dataTree.length > 1 ? styles["multiply-node"] : ""
+          )}
+        >
+          <span
+            className={classNames(
+              styles["tree-node"],
+              styles[`${isLeaf(item)}`]
+            )}
+          >
+            {editorEnable && <span
+              style={{ color: "#F4374C" }}
+              className={classNames(
+                "iconfont",
+                "icon-clear",
+                styles["icon-operating"]
+              )}
+              onClick={() => onDelete(item)}
+            ></span>}
+            <NodeContainer title={item.name} />
+            {editorEnable && <span
+              style={{ color: "#24803D" }}
+              className={classNames(
+                "iconfont",
+                "icon-add",
+                styles["icon-operating"]
+              )}
+              onClick={() => onAdd(item)}
+            ></span>}
+          </span>
+          {item.children && (
+            <div
+              ref={currentRef}
+              className={classNames(
+                styles["tree-childNodes"],
+              )}
+            >
+              <Node
+                dataTree={item.children}
+                NodeContainer={NodeContainer}
+                editorEnable={editorEnable}
+                isChild
+              />
+            </div>
+          )}
+        </div>
+      ))}
+    </Fragment>
+```
+### （2）、广度优先
