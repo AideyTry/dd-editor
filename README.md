@@ -1,10 +1,11 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-07-16 17:46:03
- * @LastEditTime: 2020-09-24 15:21:03
+ * @LastEditTime: 2020-09-28 18:03:29
  * @LastEditors: Aiden
  * @Description: 
 --> 
+[English](README.en-US.md) | 简体中文
 # dd-editor
 ### dd-editor是为了解决以树形结构为基础的各种流程图组件库，如：规则引擎决策树、组织架构图等。
 
