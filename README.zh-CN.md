@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-07-16 17:46:03
- * @LastEditTime: 2020-09-29 09:47:53
+ * @LastEditTime: 2020-09-29 10:00:34
  * @LastEditors: Aiden
  * @Description: 
 --> 
@@ -9,7 +9,7 @@
 
 # dd-editor
 
-<h3>dd-editor是为了解决以树形结构为基础的各种流程图组件库，如：规则引擎决策树、组织架构图等。</h3>
+### dd-editor是为了解决以树形结构为基础的各种流程图组件库，如：规则引擎决策树、组织架构图等。
 
 [1、使用](./docs/use.md)
 
