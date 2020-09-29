@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:46
- * @LastEditTime: 2020-09-28 17:12:23
+ * @LastEditTime: 2020-09-29 13:48:49
  * @LastEditors: Aiden
  * @Descripti
 -->
@@ -52,7 +52,7 @@ class Stack{
 ### (3).Queue
 ```bash
 A queue is an ordered set of items following the first-in-first-out (FIFO, also known as first-come, first-served) principle.
-In dd-editor, the queue is mainly used to realize the flattening operation of the tree and delete the tree structure. code show as below:
+In dd-editor, the queue is mainly used to realize the flattening operation of the tree and delete the tree structure. code goes like below:
 export function treeToList(tree) {
   let queen = [];
   let out = [];

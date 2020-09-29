@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:08
- * @LastEditTime: 2020-09-28 16:41:57
+ * @LastEditTime: 2020-09-29 14:37:31
  * @LastEditors: Aiden
  * @Description: 
 -->
@@ -11,7 +11,7 @@ English | [简体中文](deploy.md)
 
 ### (1).Log in to npm
 ```bash
-First go to the npm official website to register an account and bind the mailbox (note that please use mainstream mailboxes, some mailboxes may not receive npm mailbox verification emails);
+First go to the npm official website(https://www.npmjs.com) to register an account and bind the mailbox (note that please use mainstream mailboxes, some mailboxes may not receive npm mailbox verification emails);
 Secondly, use npm adduser to log in. You can use npm whoami to check whether you are logged in before logging in. Use npm logout to log out.
 ```
 
@@ -20,7 +20,7 @@ Secondly, use npm adduser to log in. You can use npm whoami to check whether you
 Use npm config ls to view the current information, use npm config set registry <address> to modify the registration source
 ```
 
-### (3).Use npm publish to publish
+### (3).Release by *npm publish*
 
 ### (4).Note: Semantic version
 ```bash
@@ -32,4 +32,4 @@ Revision number: When you have made a downward compatibility problem correction.
 ```
 
 
-## Continuously Updating...
+## Revision in progress...

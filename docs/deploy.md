@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:08
- * @LastEditTime: 2020-09-28 16:30:08
+ * @LastEditTime: 2020-09-29 14:39:18
  * @LastEditors: Aiden
  * @Description: 
 -->
@@ -11,7 +11,7 @@
 
 ### （1）、登陆到npm
 ```bash
-首先到npm官网注册账号并绑定邮箱（注意请使用主流邮箱，有的邮箱可能收不到npm邮箱验证的邮件）；
+首先到npm官网(https://www.npmjs.com)注册账号并绑定邮箱（注意请使用主流邮箱，有的邮箱可能收不到npm邮箱验证的邮件）；
 其次用npm adduser来进行登陆，登陆前可用npm whoami来检测是否已登陆，退出登陆用npm logout
 ```
 
