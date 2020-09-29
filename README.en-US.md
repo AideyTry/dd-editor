@@ -1,13 +1,15 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-28 15:47:37
- * @LastEditTime: 2020-09-28 16:43:29
+ * @LastEditTime: 2020-09-29 09:47:34
  * @LastEditors: Aiden
  * @Description: 
 -->
 English | [简体中文](README.md)
 
-<div align="center">dd-editor is to solve various flowchart component libraries based on tree structure, such as: rule engine decision tree, organization chart, etc.</div>
+# dd-editor
+
+<h3 align="left">dd-editor is to solve various flowchart component libraries based on tree structure, such as: rule engine decision tree, organization chart, etc.</h3>
 
 [1、Usage](./docs/use.en-US.md)
 

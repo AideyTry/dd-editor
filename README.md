@@ -1,17 +1,18 @@
 <!--
  * @Author: Aiden
- * @Date: 2020-07-16 17:46:03
- * @LastEditTime: 2020-09-28 18:03:29
+ * @Date: 2020-09-28 15:47:37
+ * @LastEditTime: 2020-09-29 09:47:45
  * @LastEditors: Aiden
  * @Description: 
---> 
-[English](README.en-US.md) | 简体中文
+-->
+English | [简体中文](README.zh-CN.md)
+
 # dd-editor
-### dd-editor是为了解决以树形结构为基础的各种流程图组件库，如：规则引擎决策树、组织架构图等。
 
-[1、使用](./docs/use.md)
+<h3 align="left">dd-editor is to solve various flowchart component libraries based on tree structure, such as: rule engine decision tree, organization chart, etc.</h3>
 
-[2、如何发布npm包以及开发公共前端组件库流程](./docs/deploy.md)
+[1、Usage](./docs/use.en-US.md)
 
-[3、dd-editor组件中用到的JavaScript数据结构、设计模式和算法](./docs/learn.md)
+[2、How to publish npm package and develop public front-end component library process](./docs/deploy.en-US.md)
 
+[3、JavaScript data structure, design pattern and algorithm used in dd-editor component](./docs/learn.en-US.md)
