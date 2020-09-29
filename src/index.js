@@ -1,12 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-09-24 16:49:13
+ * @LastEditTime: 2020-09-29 10:19:09
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
 
-import "@babel/polyfill";
+// import "@babel/polyfill";
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Node from "@/components";
