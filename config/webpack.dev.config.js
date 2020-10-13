@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2020-09-22 13:33:11
+ * @LastEditTime: 2020-10-13 15:40:48
  * @LastEditors: Aiden
  * @Description:
  */
@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/, // normal普通的loader
         use: "babel-loader",
-        exclude: [path.resolve(__dirname, "../node_modules")]
+        exclude: [path.resolve(__dirname, "../node_modules"),path.resolve(__dirname, "../dist")]
       },
       {
         test: /\.css$/,

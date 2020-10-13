@@ -5,7 +5,12 @@
   "module": "dist/index.js",
   "types": "dist/index.js",
   "repository": "https://github.com/aidenfly/dd-editor.git",
-  "keywords": ["editor", "component", "react", "mind"],
+  "keywords": [
+    "editor",
+    "component",
+    "react",
+    "mind"
+  ],
   "author": "Aiden",
   "license": "MIT",
   "scripts": {
@@ -44,6 +49,7 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "core-js": "2",
     "css-loader": "^4.2.2",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",
