@@ -33,6 +33,8 @@
     "@babel/runtime": "^7.11.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
+    "gitmoji-cli": "^3.2.18",
+    "global": "^4.4.0",
     "uuid": "^8.3.0"
   },
   "peerDependencies": {
