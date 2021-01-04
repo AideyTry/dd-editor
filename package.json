@@ -15,7 +15,9 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --env.NODE_ENV=production --config config/webpack.config.js",
-    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js"
+    "start": "webpack-dev-server --hot --open --env.NODE_ENV=development --config config/webpack.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "files": [
     "dist"
@@ -47,6 +49,10 @@
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/react": "^6.1.11",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",

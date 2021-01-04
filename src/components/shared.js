@@ -1,12 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2020-09-24 16:59:23
+ * @LastEditTime: 2021-01-04 16:32:03
  * @LastEditors: Aiden
  * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
 
-import { treeToList, toTree, deleteNode, Stack } from "@/untils";
+import { treeToList, toTree, deleteNode, Stack } from "./untils";
 
 /**
  * @description: 观察者模式封装

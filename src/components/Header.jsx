@@ -1,6 +1,6 @@
 import React, { Fragment, useReducer, forwardRef } from "react";
-import "@/components/IconFont/iconfont.css";
-import styles from "@/components/header.less";
+import "./IconFont/iconfont.css";
+import styles from "./header.less";
 import classNames from "classnames";
 import { useDataShare } from "./shared";
 

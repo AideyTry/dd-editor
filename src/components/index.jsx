@@ -1,13 +1,13 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2020-09-22 17:53:27
+ * @LastEditTime: 2021-01-04 16:45:32
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
 import React, { Fragment, useRef } from "react";
 import PropTypes from "prop-types";
-import "@/components/IconFont/iconfont.css";
+import "./IconFont/iconfont.css";
 import classNames from "classnames";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./index.less";
