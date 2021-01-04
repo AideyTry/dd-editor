@@ -1,17 +1,17 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2020-10-13 15:59:29
+ * @LastEditTime: 2021-01-04 21:35:23
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
 
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Node from "@/components";
-import Header from "@/components/Header";
-import data from "@/data.json";
-import { useDataShare, Observer } from "@/components/shared";
+import Node from "./components";
+import Header from "./components/Header";
+import data from "./data.json";
+import { useDataShare, Observer } from "./components/shared";
 function TreeNode(props) {
   const { NodeContainer, treeData, editorEnable } = props;
   const [dataTree, setDataTree] = useState(treeData);
