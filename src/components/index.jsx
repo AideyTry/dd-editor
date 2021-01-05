@@ -1,13 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2021-01-05 18:02:47
+ * @LastEditTime: 2021-01-06 00:18:59
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
 import React, { Fragment, useRef } from "react";
 import PropTypes from "prop-types";
-import "./IconFont/iconfont.css";
 import classNames from "classnames";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./index.less";
@@ -62,7 +61,7 @@ const Node = (props) => {
             {editorEnable && (
               <IconFont
                 type="icon-clear"
-                style={{ color: "#F4374C" }}
+                style={{ fill: "#F4374C" }}
                 className={classNames(styles["icon-operating"])}
                 onClick={() => onDelete(item)}
               ></IconFont>
@@ -71,7 +70,7 @@ const Node = (props) => {
             {editorEnable && (
               <IconFont
                 type="icon-add"
-                style={{ color: "#24803D" }}
+                style={{ fill: "#24803D" }}
                 className={classNames(styles["icon-operating"])}
                 onClick={() => onAdd(item)}
               ></IconFont>
