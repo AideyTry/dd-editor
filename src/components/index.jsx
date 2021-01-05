@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2021-01-04 16:45:32
+ * @LastEditTime: 2021-01-05 18:02:47
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -12,20 +12,24 @@ import classNames from "classnames";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./index.less";
 import { useDataShare } from "./shared";
-const Node = props => {
+import { createFromIconfontCN } from "./IconFont";
+const Node = (props) => {
   const { dataTree, NodeContainer, isChild, editorEnable } = props;
   const currentRef = useRef(null);
-  const isLeaf = data => (data.children ? "" : "leaf-node");
+  const isLeaf = (data) => (data.children ? "" : "leaf-node");
+  const IconFont = createFromIconfontCN({
+    scriptUrl: ["//at.alicdn.com/t/font_1986533_vk4mok8me3k.js"],
+  });
   /**
    * @description: 增加节点
    * @params: info{Object}
-   * @return {undefined} 
+   * @return {undefined}
    */
-  const onAdd = info => {
+  const onAdd = (info) => {
     const singleData = {
       id: uuidv4().replace(/-/g, ""),
       parentId: info.id,
-      name: uuidv4().replace(/-/g, "")
+      name: uuidv4().replace(/-/g, ""),
     };
     // 执行命令行，添加节点
     useDataShare.excute({ command: "add", param: singleData });
@@ -33,21 +37,19 @@ const Node = props => {
   /**
    * @description: 删除节点
    * @params: info{Object}
-   * @return {undefined} 
+   * @return {undefined}
    */
-  const onDelete = info => {
+  const onDelete = (info) => {
     // 执行命令行删除节点
     useDataShare.excute({ command: "delete", param: info });
   };
   return (
     <Fragment>
-      {dataTree.map(item => (
+      {dataTree.map((item) => (
         <div
           key={item.id}
           className={classNames(
-            isChild
-              ? styles["tree-childNodes-row"]
-              : styles["tree-root"],
+            isChild ? styles["tree-childNodes-row"] : styles["tree-root"],
             dataTree.length > 1 ? styles["multiply-node"] : ""
           )}
         >
@@ -57,32 +59,28 @@ const Node = props => {
               styles[`${isLeaf(item)}`]
             )}
           >
-            {editorEnable && <span
-              style={{ color: "#F4374C" }}
-              className={classNames(
-                "iconfont",
-                "icon-clear",
-                styles["icon-operating"]
-              )}
-              onClick={() => onDelete(item)}
-            ></span>}
+            {editorEnable && (
+              <IconFont
+                type="icon-clear"
+                style={{ color: "#F4374C" }}
+                className={classNames(styles["icon-operating"])}
+                onClick={() => onDelete(item)}
+              ></IconFont>
+            )}
             <NodeContainer title={item.name} />
-            {editorEnable && <span
-              style={{ color: "#24803D" }}
-              className={classNames(
-                "iconfont",
-                "icon-add",
-                styles["icon-operating"]
-              )}
-              onClick={() => onAdd(item)}
-            ></span>}
+            {editorEnable && (
+              <IconFont
+                type="icon-add"
+                style={{ color: "#24803D" }}
+                className={classNames(styles["icon-operating"])}
+                onClick={() => onAdd(item)}
+              ></IconFont>
+            )}
           </span>
           {item.children && (
             <div
               ref={currentRef}
-              className={classNames(
-                styles["tree-childNodes"],
-              )}
+              className={classNames(styles["tree-childNodes"])}
             >
               <Node
                 dataTree={item.children}
@@ -102,11 +100,11 @@ Node.propTypes = {
   dataTree: PropTypes.array,
   editorEnable: PropTypes.bool,
   isChild: PropTypes.bool,
-  NodeContainer: PropTypes.elementType
+  NodeContainer: PropTypes.elementType,
 };
 
 Node.defaultProps = {
-  isChild: false
+  isChild: false,
 };
 
 export default Node;
