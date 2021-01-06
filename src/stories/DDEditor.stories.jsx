@@ -9,6 +9,14 @@ export default {
     treeData: {
       description: "Set the dataTree of DDEditor",
     },
+    editorEnable: {
+      description: "Set the editorEnable of DDEditor",
+      table: {
+        defaultValue: { 
+            summary: true, 
+        },
+      },
+    },
     NodeContainer: {
       description: "Set the NodeContainer of DDEditor",
     }
@@ -20,19 +28,17 @@ const NodeContainer = info => (
     <option value="1">{info.title}</option>
     <option value="2">jack22</option>
   </select>
-  // <span>{info.title}</span>
 );
 
-const Template = (args) => {
-
+export const DDEditor = args => {
   return (
-      <Node
-        {...args}
-      ></Node>
-  );
+    <Node
+      {...args}
+    ></Node>
+);
 };
-export const DDEditor = Template.bind({});
 DDEditor.args = {
   treeData: data,
-  NodeContainer: NodeContainer
+  NodeContainer: NodeContainer,
+  editorEnable: true
 }

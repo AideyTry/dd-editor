@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2021-01-04 17:40:08
+ * @LastEditTime: 2021-01-06 10:56:50
  * @LastEditors: Aiden
  * @Description:
  */
@@ -9,7 +9,7 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   // devtool: "source-map",
   output: {
     filename: "index.js",

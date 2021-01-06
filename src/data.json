@@ -2,17 +2,6 @@
   {
     "id": 0,
     "parentId": -1,
-    "name": "node",
-    "children": [
-      {
-        "id": 1,
-        "parentId": 0,
-        "name": "node1",
-        "children": [
-          { "id": 111,     "parentId": 1, "name": "node111" },
-          { "id": 112,     "parentId": 1, "name": "node112" }
-        ]
-      }
-    ]
+    "name": "node"
   }
 ]

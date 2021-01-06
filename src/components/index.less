@@ -35,12 +35,23 @@
   border-top: 1px solid #00f;
   content: '';
 }
+.tree-node:first-child::before {
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  display: none;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-top: 1px solid #00f;
+  content: '';
+}
 .tree-node:after{
   position: absolute;
   top: 50%;
-  left: 100%;
+  left: calc(100% + 1px);
   display: block;
-  width: 31px;
+  width: 30px;
   height: 1px;
   border:none;
   background-color:#00f;

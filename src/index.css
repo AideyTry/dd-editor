@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+select{
+  border: navajowhite;
+  outline: 1px solid !important;
+  border: none !important;
+}

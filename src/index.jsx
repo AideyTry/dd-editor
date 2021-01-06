@@ -1,13 +1,14 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2021-01-05 17:49:54
+ * @LastEditTime: 2021-01-06 14:20:38
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
 
 import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import './index.css'
 import Node from "./components";
 import Header from "./components/Header";
 import data from "./data.json";
@@ -35,8 +36,8 @@ function TreeNode(props) {
   );
 }
 TreeNode.propTypes = {
-  treeData: PropTypes.array,
-  editorEnable: PropTypes.bool,
+  treeData: PropTypes.array.isRequired,
+  editorEnable: PropTypes.bool.isRequired,
   NodeContainer: PropTypes.elementType
 };
 
@@ -45,5 +46,7 @@ TreeNode.defaultProps = {
   editorEnable: true,
   NodeContainer: <React.Fragment></React.Fragment>
 };
+
+TreeNode.displayName = 'DDEditor';
 
 export default TreeNode;
