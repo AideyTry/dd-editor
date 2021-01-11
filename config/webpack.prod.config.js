@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2021-01-06 10:56:50
+ * @LastEditTime: 2021-01-08 15:08:59
  * @LastEditors: Aiden
  * @Description:
  */
@@ -10,11 +10,19 @@ const path = require("path");
 module.exports = {
   mode: "production",
   entry: "./src/index.jsx",
-  // devtool: "source-map",
+  devtool: "nosources-source-map",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "../dist"),
     libraryTarget: "commonjs2",
+  },
+  optimization: {
+    minimize: true
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 5120000,
+    maxAssetSize: 5120000,
   },
   externals: {
     react: {
@@ -77,10 +85,10 @@ module.exports = {
         use: [
           {
             loader: "url-loader",
-            options: {
-              // 做一个限制，当我们图标小于多少时用base64来转化，否则用file-loader产生真实的图片。
-              limit: 1,
-            },
+            // options: {
+            //   // 做一个限制，当我们图标小于多少时用base64来转化，否则用file-loader产生真实的图片。
+              limit: 10000,
+            // },
           },
         ],
       },

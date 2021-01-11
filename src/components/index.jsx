@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2021-01-06 00:18:59
+ * @LastEditTime: 2021-01-11 11:00:50
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -17,7 +17,7 @@ const Node = (props) => {
   const currentRef = useRef(null);
   const isLeaf = (data) => (data.children ? "" : "leaf-node");
   const IconFont = createFromIconfontCN({
-    scriptUrl: ["//at.alicdn.com/t/font_1986533_vk4mok8me3k.js"],
+    scriptUrl: ["http://at.alicdn.com/t/font_1986533_vk4mok8me3k.js"],
   });
   /**
    * @description: 增加节点

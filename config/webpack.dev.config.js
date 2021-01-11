@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2021-01-04 13:57:51
+ * @LastEditTime: 2021-01-08 15:08:52
  * @LastEditors: Aiden
  * @Description:
  */
@@ -10,11 +10,19 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  devtool: "inline-source-map",
+  devtool: "nosources-source-map",
   entry: "./examples/dev.js",
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "/dist")
+  },
+  optimization: {
+    minimize: true
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 51200000,
+    maxAssetSize: 5120000,
   },
   module: {
     rules: [ // loader默认是从右向左执行，从下到上
@@ -63,7 +71,7 @@ module.exports = {
             loader: "url-loader",
             options: {
               // 做一个限制，当我们图标小于多少时用base64来转化，否则用file-loader产生真实的图片。
-              limit: 1
+              limit: 10000
               // outputPath: '/img/'
             }
           }
