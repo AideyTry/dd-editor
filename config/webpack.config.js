@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:15
- * @LastEditTime: 2020-09-21 16:27:52
+ * @LastEditTime: 2021-01-15 15:48:05
  * @LastEditors: Aiden
  * @Description: 
  */
@@ -12,5 +12,6 @@ module.exports = (env) => {
   } else {
     console.log('11111')
       return require('./webpack.dev.config.js');
+      // return require('./webpack.prod.config.js');
   }
 };

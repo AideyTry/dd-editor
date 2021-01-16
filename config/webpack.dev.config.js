@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2021-01-08 15:08:52
+ * @LastEditTime: 2021-01-15 17:26:06
  * @LastEditors: Aiden
  * @Description:
  */
@@ -37,7 +37,9 @@ module.exports = {
       {
         test: /\.(js|jsx|mdx)$/, // normal普通的loader
         use: "babel-loader",
-        exclude: [path.resolve(__dirname, "../node_modules"),path.resolve(__dirname, "../dist")]
+        // exclude: [path.resolve(__dirname, "../node_modules"),path.resolve(__dirname, "../dist")]
+        exclude: [path.resolve(__dirname, "../node_modules")],
+        // include: path.resolve(__dirname, '../'),
       },
       {
         test: /\.css$/,
