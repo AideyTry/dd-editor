@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2021-01-08 15:08:59
+ * @LastEditTime: 2021-01-16 23:17:36
  * @LastEditors: Aiden
  * @Description:
  */
@@ -44,6 +44,11 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: [path.resolve(__dirname, "../node_modules")],
+      },
+      {
+        test: /\.mdx$/,
+        use: ['babel-loader', '@mdx-js/loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,

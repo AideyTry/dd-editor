@@ -3,7 +3,7 @@ import Node from '../index'
 import data from '../data.json'
 
 export default {
-  title: "Example/DDEditor",
+  title: "Components/DDEditor",
   component: Node,
   argTypes: {
     treeData: {

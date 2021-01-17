@@ -5,7 +5,7 @@ const IconFont = createFromIconfontCN({
     scriptUrl: ["//at.alicdn.com/t/font_1986533_vk4mok8me3k.js"],
   });
 export default {
-    title: "Example/IconFont",
+    title: "Components/IconFont",
     component: IconFont,
     argTypes: {
         type: {
