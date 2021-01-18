@@ -8,10 +8,7 @@ export default {
       description: "Set the auth of AuthButton"
     },
     authBtns: {
-      description: "Set the authBtns of AuthButton"
-    },
-    authBtns: {
-      description: "Set the editorEnable of DDEditor",
+      description: "Set the authBtns of AuthButton",
       table: {
         defaultValue: { 
             summary: ["001", "002", "003", "btn001"], 
@@ -21,9 +18,9 @@ export default {
   }
 };
 
-// export const Button = args => <AuthButton {...args}></AuthButton>;
+export const Button = args => <AuthButton {...args}><button>button</button></AuthButton>;
 
-// Button.args = {
-//   auth: "btn001",
-//   authBtns: ["001", "002", "003", "btn001"]
-// };
+Button.args = {
+  auth: "001",
+  authBtns: ["001", "002", "003", "004"]
+};
