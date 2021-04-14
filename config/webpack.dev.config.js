@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:05
- * @LastEditTime: 2021-01-17 13:36:11
+ * @LastEditTime: 2021-04-14 18:53:08
  * @LastEditors: Aiden
  * @Description:
  */
@@ -15,7 +15,7 @@ module.exports = {
   entry: "./examples/dev.js",
   output: {
     filename: "index.js",
-    path: path.resolve(__dirname, "/dist")
+    path: path.resolve(__dirname, "../dist")
   },
   optimization: {
     minimize: true

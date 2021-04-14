@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2021-01-04 16:32:03
+ * @LastEditTime: 2021-04-14 18:42:57
  * @LastEditors: Aiden
  * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
@@ -56,7 +56,7 @@ const useDataShare = (() => {
   let redoStack = new Stack();
   const Action = {
     init: info => {
-      data = Object.assign([], info);
+      data = JSON.parse(JSON.stringify(Object.assign([], info)));
       data = treeToList(data);
     },
     add: info => {

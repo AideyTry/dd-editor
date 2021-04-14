@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:37:29
- * @LastEditTime: 2021-01-16 23:17:36
+ * @LastEditTime: 2021-04-14 19:16:09
  * @LastEditors: Aiden
  * @Description:
  */
@@ -90,10 +90,10 @@ module.exports = {
         use: [
           {
             loader: "url-loader",
-            // options: {
+            options: {
             //   // 做一个限制，当我们图标小于多少时用base64来转化，否则用file-loader产生真实的图片。
               limit: 10000,
-            // },
+            },
           },
         ],
       },

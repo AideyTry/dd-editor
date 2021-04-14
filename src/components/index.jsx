@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-17 14:13:28
- * @LastEditTime: 2021-01-11 11:00:50
+ * @LastEditTime: 2021-04-14 18:37:00
  * @LastEditors: Aiden
  * @Description: This is a common component of the spanning tree node.(这是生成树节点公共组件)
  */
@@ -66,7 +66,7 @@ const Node = (props) => {
                 onClick={() => onDelete(item)}
               ></IconFont>
             )}
-            <NodeContainer title={item.name} />
+            <NodeContainer {...item}/>
             {editorEnable && (
               <IconFont
                 type="icon-add"

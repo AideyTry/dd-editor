@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2021-01-06 14:20:38
+ * @LastEditTime: 2021-04-14 19:11:53
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -24,6 +24,7 @@ function TreeNode(props) {
       setDataTree(e.args.msg);
     });
   }, []);
+  console.log('dataTree===', dataTree)
   return (
     <div ref={canvasRef}>
       <Header ref={canvasRef}></Header>
@@ -50,3 +51,7 @@ TreeNode.defaultProps = {
 TreeNode.displayName = 'DDEditor';
 
 export default TreeNode;
+export {
+  TreeNode as DDEditor
+}
+// module.exports = TreeNode;
