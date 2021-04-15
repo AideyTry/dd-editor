@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2021-04-14 19:11:53
+ * @LastEditTime: 2021-04-15 10:28:57
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -14,7 +14,7 @@ import Header from "./components/Header";
 import data from "./data.json";
 import { useDataShare, Observer } from "./components/shared";
 function TreeNode(props) {
-  const { NodeContainer, treeData, editorEnable } = props;
+  const { NodeContainer, treeData, editorEnable, updateDataFn } = props;
   const [dataTree, setDataTree] = useState(treeData);
   const canvasRef = useRef(null);
   useEffect(() => {
@@ -25,6 +25,7 @@ function TreeNode(props) {
     });
   }, []);
   console.log('dataTree===', dataTree)
+  updateDataFn(dataTree)
   return (
     <div ref={canvasRef}>
       <Header ref={canvasRef}></Header>
@@ -39,13 +40,14 @@ function TreeNode(props) {
 TreeNode.propTypes = {
   treeData: PropTypes.array.isRequired,
   editorEnable: PropTypes.bool.isRequired,
-  NodeContainer: PropTypes.elementType
+  NodeContainer: PropTypes.elementType,
+  updateDataFn: PropTypes.func,
 };
 
 TreeNode.defaultProps = {
   treeData: data,
   editorEnable: true,
-  NodeContainer: <React.Fragment></React.Fragment>
+  NodeContainer: <React.Fragment></React.Fragment>,
 };
 
 TreeNode.displayName = 'DDEditor';

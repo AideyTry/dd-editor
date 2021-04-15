@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:40:59
- * @LastEditTime: 2021-04-14 19:17:23
+ * @LastEditTime: 2021-04-15 10:29:56
  * @LastEditors: Aiden
  * @Description: This is the development environment used to test the public components of dd-editor.(这是开发环境用于测试dd-editor公共组件的.)
  */
@@ -41,10 +41,14 @@ const NodeContainer = (info) => {
   return renders
 }
 
+const uFn = newTreeData => {
+  console.log('newTreeData=', newTreeData)
+}
+
 const Dev = () => {
   return (
     <React.Fragment>
-      <DDEditor treeData={data} NodeContainer={NodeContainer}></DDEditor>
+      <DDEditor treeData={data} NodeContainer={NodeContainer} updateDataFn={uFn}></DDEditor>
     </React.Fragment>
   )
 }
