@@ -34,6 +34,7 @@
     "@babel/polyfill": "^7.11.5",
     "@babel/runtime": "^7.11.2",
     "@types/classnames": "^2.2.10",
+    "antd": "^4.15.1",
     "classnames": "^2.2.6",
     "gitmoji-cli": "^3.2.18",
     "global": "^4.4.0",

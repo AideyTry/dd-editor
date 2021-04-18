@@ -1,7 +1,7 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:48:16
- * @LastEditTime: 2020-09-28 16:06:48
+ * @LastEditTime: 2021-04-18 22:24:47
  * @LastEditors: Aiden
  * @Description: 
 -->
@@ -25,8 +25,8 @@ yarn add dd-editor
 ## 使用
   
 ```bash
-import DDEditor from 'dd-editor'
-<DDEditor treeData={data} NodeContainer={NodeContainer}></DDEditor>
+import DDEditor, { useUpdated } from 'dd-editor'
+<DDEditor treeData={data} NodeContainer={NodeContainer} updateDataFn={Fn}></DDEditor>
 
  (1) 必填项
  NodeContainer{ReactNode}
@@ -50,6 +50,10 @@ data{Array} = [
     ]
   }
 ]
+
+(3) updateDataFn更新后的整个树节点数据返回回调函数
+
+(4) 通过useUpdated传递更新的节点数据
 
 editorEnable{boolean} = true   为true显示编辑，为false只是显示
 

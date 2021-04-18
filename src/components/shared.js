@@ -1,12 +1,12 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-16 10:34:40
- * @LastEditTime: 2021-04-14 18:42:57
+ * @LastEditTime: 2021-04-18 22:16:15
  * @LastEditors: Aiden
  * @Description: Realize data communication and sharing.(实现数据通信和共享)
  */
 
-import { treeToList, toTree, deleteNode, Stack } from "./untils";
+import { treeToList, toTree, deleteNode, Stack, unique } from "./untils";
 
 /**
  * @description: 观察者模式封装
@@ -66,6 +66,18 @@ const useDataShare = (() => {
       data.push(info);
       Action.retrieve();
     },
+    update: info => {
+      const list = JSON.parse(JSON.stringify(data));
+      const newList = list.map(item => {
+        if(item.id === info.id){
+          return info
+        } else {
+          return item
+        }
+      })
+      data = unique(newList)
+      Action.retrieve();
+    },
     delete: info => {
       const list = JSON.parse(JSON.stringify(data));
       undoStack.push(list);
@@ -120,4 +132,11 @@ const useDataShare = (() => {
   };
 })();
 
-export { useDataShare };
+const useUpdated = (dataInfo) => {
+  if(dataInfo.children){
+    delete dataInfo.children
+  }
+  useDataShare.excute({ command: "update", param: dataInfo });
+}
+
+export { useDataShare, useUpdated };

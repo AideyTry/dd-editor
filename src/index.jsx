@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-07-16 15:53:29
- * @LastEditTime: 2021-04-15 10:28:57
+ * @LastEditTime: 2021-04-18 22:13:00
  * @LastEditors: Aiden
  * @Description: This is the entrance, including the header toolbar and the node part.（这是入口，包含头部工具条和节点部分。）
  */
@@ -12,7 +12,7 @@ import './index.css'
 import Node from "./components";
 import Header from "./components/Header";
 import data from "./data.json";
-import { useDataShare, Observer } from "./components/shared";
+import { useDataShare, Observer, useUpdated } from "./components/shared";
 function TreeNode(props) {
   const { NodeContainer, treeData, editorEnable, updateDataFn } = props;
   const [dataTree, setDataTree] = useState(treeData);
@@ -24,7 +24,6 @@ function TreeNode(props) {
       setDataTree(e.args.msg);
     });
   }, []);
-  console.log('dataTree===', dataTree)
   updateDataFn(dataTree)
   return (
     <div ref={canvasRef}>
@@ -54,6 +53,7 @@ TreeNode.displayName = 'DDEditor';
 
 export default TreeNode;
 export {
-  TreeNode as DDEditor
+  TreeNode as DDEditor,
+  useUpdated
 }
 // module.exports = TreeNode;

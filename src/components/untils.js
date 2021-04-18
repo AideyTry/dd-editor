@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-10 23:34:29
- * @LastEditTime: 2020-09-24 16:01:42
+ * @LastEditTime: 2021-04-18 21:33:55
  * @LastEditors: Aiden
  * @Description: This is the public methods.
  */
@@ -76,6 +76,25 @@ export function deleteNode(tree, node){
     out.push(first)
   }
   return out
+}
+
+/**
+ * @description: 去重
+ * @param {*} arr
+ * @Author: 
+ * @return {*}
+ * @params {*}
+ */
+export function unique(arr){
+  for(let i = 0; i<arr.length; i++){
+    for(let j=j+1; j<arr.length; j++){
+      if(arr[i].id === arr[j].id){
+        arr.splice(j, 1)
+        j--
+      }
+    }
+  }
+  return arr
 }
 
 /**

@@ -48,8 +48,9 @@ const Header = forwardRef((props, canvasRef) => {
   const IconFont = createFromIconfontCN({
     scriptUrl: ["//at.alicdn.com/t/font_1986533_vk4mok8me3k.js"],
   });
+  // eslint-disable-next-line no-unused-vars
   const [cunter, cDispatch] = useReducer(reducer, initialState);
-  console.log("cunter=", cunter);
+  // console.log("cunter=", cunter);
   const onZoomIn = () => {
     cDispatch({ type: "increment", ref: canvasRef.current.children[1] });
   };

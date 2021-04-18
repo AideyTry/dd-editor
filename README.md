@@ -1,11 +1,11 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-28 15:47:37
- * @LastEditTime: 2020-12-30 16:10:31
+ * @LastEditTime: 2021-04-18 22:19:47
  * @LastEditors: Aiden
  * @Description: 
 -->
-English | [简体中文1](README.zh-CN.md)
+English | [简体中文](README.zh-CN.md)
 
 # dd-editor
 

@@ -1,29 +1,45 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:40:59
- * @LastEditTime: 2021-04-15 10:29:56
+ * @LastEditTime: 2021-04-18 22:17:26
  * @LastEditors: Aiden
  * @Description: This is the development environment used to test the public components of dd-editor.(这是开发环境用于测试dd-editor公共组件的.)
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import data from '@/data.json'
+import { Select, Input } from 'antd'
+import 'antd/dist/antd.css'
 
-import DDEditor from '../src/index'
+import DDEditor, { useUpdated } from '../src/index'
 // import DDEditor from "../dist/index.js";
-console.log('DDEditor==', DDEditor)
+
+const { Option } = Select
 
 const NodeContainer = (info) => {
-  console.log('info===', info)
+  console.log('info=', info)
   let renders = null
+  const newInfo = Object.assign({}, info)
+
+  const onChange = (value) => {
+    newInfo.valueId = value
+    // 数据改变的时候通过useUpdated传递新数据过去
+    useUpdated(newInfo)
+  }
   switch (info.type) {
     case 1:
       renders = (
         <div>
-          <select defaultValue="1" style={{ width: '120px' }}>
-            <option value="1">{info.title}</option>
-            <option value="2">jack22</option>
-          </select>
+          <Select
+            defaultValue="1"
+            style={{ width: '120px' }}
+            onChange={onChange}
+          >
+            <Option value="1">{info.title}</Option>
+            <Option value="2">jack22</Option>
+            <Option value="3">mark</Option>
+            <Option value="4">jim</Option>
+          </Select>
           <input />
         </div>
       )
@@ -35,20 +51,40 @@ const NodeContainer = (info) => {
         </div>
       )
       break
+    case 3:
+      renders = (
+        <div>
+          <Select
+            defaultValue="1"
+            style={{ width: '120px' }}
+            onChange={onChange}
+          >
+            <Option value="1">{info.title}</Option>
+            <Option value="2">look</Option>
+            <Option value="3">jason</Option>
+            <Option value="4">mark</Option>
+          </Select>
+        </div>
+      )
+      break
     default:
-      renders = <input />
+      renders = <Input id={info.id} />
   }
   return renders
 }
 
-const uFn = newTreeData => {
+const uFn = (newTreeData) => {
   console.log('newTreeData=', newTreeData)
 }
 
 const Dev = () => {
   return (
     <React.Fragment>
-      <DDEditor treeData={data} NodeContainer={NodeContainer} updateDataFn={uFn}></DDEditor>
+      <DDEditor
+        treeData={data}
+        NodeContainer={NodeContainer}
+        updateDataFn={uFn}
+      ></DDEditor>
     </React.Fragment>
   )
 }
