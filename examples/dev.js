@@ -1,7 +1,7 @@
 /*
  * @Author: Aiden
  * @Date: 2020-09-01 16:40:59
- * @LastEditTime: 2021-04-18 22:17:26
+ * @LastEditTime: 2021-04-18 22:35:03
  * @LastEditors: Aiden
  * @Description: This is the development environment used to test the public components of dd-editor.(这是开发环境用于测试dd-editor公共组件的.)
  */
@@ -23,7 +23,7 @@ const NodeContainer = (info) => {
 
   const onChange = (value) => {
     newInfo.valueId = value
-    // 数据改变的时候通过useUpdated传递新数据过去
+    // 数据改变的时候通过useUpdated传递修改的某个节点新数据过去
     useUpdated(newInfo)
   }
   switch (info.type) {
