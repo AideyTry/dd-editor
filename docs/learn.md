@@ -1,26 +1,24 @@
 <!--
  * @Author: Aiden
  * @Date: 2020-09-14 09:49:46
- * @LastEditTime: 2020-09-28 17:27:02
+ * @LastEditTime: 2021-08-15 15:49:51
  * @LastEditors: Aiden
  * @Descripti
 -->
 [English](learn.en-US.md) | 简体中文
 
 ## 1、数据结构
-```bash
-dd-editor中除用到的数组、对象数据结构外还用到了树、堆栈、队列
-```
+
+- dd-editor中除用到的数组、对象数据结构外还用到了树、堆栈、队列
+
 ###  (1)、树
-```bash
-一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点（除了顶部的第一个节点）以及零个或多个子节点：
+- 一个树结构包含一系列存在父子关系的节点。每个节点都有一个父节点（除了顶部的第一个节点）以及零个或多个子节点：
 位于树顶部的节点叫作根节点,没有子元素的节点称为外部节点或叶子节点。
-```
 ### （2）、堆栈
-```bash
-栈是一种遵从后进先出（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。
+- 栈是一种遵从后进先出（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。
 undo/redo操作用的栈进行数据的存储。
 栈结构如下所示：
+```bash
 class Stack{
   constructor(){
     // count属性记录栈的大小
@@ -51,9 +49,9 @@ class Stack{
 ```
 
 ### （3）、队列
-```bash
-队列是遵循先进先出（FIFO，也称为先来先服务）原则的一组有序的项。
+- 队列是遵循先进先出（FIFO，也称为先来先服务）原则的一组有序的项。
 在dd-editor中，主要运用队列实现树的扁平化操作以及对树结构进行删除操作。代码如下：
+```bash
 export function treeToList(tree) {
   let queen = [];
   let out = [];
@@ -72,9 +70,9 @@ export function treeToList(tree) {
 
 ## 2、算法
 ### （1）、递归
-```bash
-递归是一种解决问题的方法，它从解决问题的各个小部分开始，直到解决最初的大问题。递归通常涉及函数调用自身。
+- 递归是一种解决问题的方法，它从解决问题的各个小部分开始，直到解决最初的大问题。递归通常涉及函数调用自身。
 dd-editor中运用递归，当存在childen属性的时候递归去调用Node组件，代码如下：
+```bash
     <Fragment>
       {dataTree.map(item => (
         <div
@@ -132,3 +130,23 @@ dd-editor中运用递归，当存在childen属性的时候递归去调用Node组
     </Fragment>
 ```
 ### （2）、广度优先
+- 通过广度优先搜索算法，对元素节点进行删除操作
+```
+export function deleteNode(tree, node){
+  let queue = []
+  const out = []
+  queue = queue.concat(tree)
+  while(queue.length){
+    let first = queue.shift()
+    if(first.id === node.id){
+      continue
+    }
+    if(first.children){
+      queue = queue.concat(first.children);
+      delete first["children"]
+    }
+    out.push(first)
+  }
+  return out
+}
+```
